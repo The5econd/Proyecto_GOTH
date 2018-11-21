@@ -1,0 +1,44 @@
+extends layout
+block content
+    header
+        nav
+            div(class="nav-wrapper #1a237e indigo darken-4")
+                a(href="/" class="brand-logo") GOTH MUSIC
+                ul(id="nav-mobile" class="right hide-on-med-and-down")
+                    li
+                        input(type="text" name="search")
+                    li
+                        a BUSCAR
+                    li
+                        a(href="/") HOME
+    div(class="row")
+        div(class="col s12 m4 l3")
+            ul(class="collapsible side-nav")
+                li(class="bold")
+                    a(class="collapsible-header #00897b teal-text darken-1-text" href="/profile/General") 
+                        i(class="material-icons prefix") settings
+                        span Opciones generales                   
+                li(class="bold")
+                    a(class="collapsible-header #00897b teal-text darken-1-text" href="/profile/Seguridad") 
+                        i(class="material-icons prefix") security 
+                        span Seguridad
+                li(class="bold")
+                    a(class="collapsible-header #00897b teal-text darken-1-text")
+                        i(class="material-icons prefix") content_copy
+                        span Contenido  
+                    div(class="collapsible-body #ffffff white")
+                        ul
+                            a(class="#00897b teal-text darken-1-text" href="/profile/Foros" )
+                                li
+                                    i(class="material-icons prefix") pageview 
+                                    span Foros      
+                            a(class="#00897b teal-text darken-1-text" href="/profile/Playlist")    
+                                li
+                                    i(class="material-icons prefix") playlist_play 
+                                    span Playlist
+                            a(class="#00897b teal-text darken-1-text" href="/profile/Videos")    
+                                li
+                                    i(class="material-icons prefix") music_video 
+                                    span Videos
+        div(class="col s12 m8 l9")
+            block content2

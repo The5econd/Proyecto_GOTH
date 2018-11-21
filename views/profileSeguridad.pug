@@ -1,0 +1,30 @@
+extends profile
+block content2
+    form(class="col s12")
+        div(class="row")
+            div(class="col s12 offset-s4")
+                h2 SEGURIDAD
+            div(class="col s12")
+                h3 Olvido la contraseña
+                a(class="waves-effect waves-light btn")
+                    i(class="material-icons left") create
+                    span Recuperar
+            div(class = "col s12")
+                h3 Pregunta secreta
+            div(class = "input-field col s6")
+                i(class="material-icons prefix") question_answer
+                input(id="icon_pregunta" value="¿Cual es tu animal favorito?" disabled  type="text" class="validate")
+                label(for="icon_pregunta") Pregunta secreta
+            div(class = "input-field col s6")
+                i(class="material-icons prefix") question_answer
+                input(id="icon_respuesta" value="Zorro" disabled  type="text" class="validate")
+                label(for="icon_respuesta") Respuesta
+            div(class = "col s12 offset-s9")
+                a(class="waves-effect waves-light btn")
+                    i(class="material-icons left") create
+                    span Cambiar respuesta
+            div(class = "col s12")
+                h3 Eliminar cuenta
+                a(class="waves-effect waves-light btn")
+                    i(class="material-icons left") delete
+                    span Eliminar

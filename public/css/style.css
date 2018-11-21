@@ -1,0 +1,7 @@
+.side-nav .collapsible-body {
+  padding: 1rem;
+}
+.side-nav .collapsible-body li{
+  display: flex;
+  padding-bottom: 0.5rem;
+}
