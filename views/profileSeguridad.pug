@@ -5,10 +5,40 @@ block content2
             div(class="col s12 offset-s4")
                 h2 SEGURIDAD
             div(class="col s12")
+                h3 Cambiar contraseña
+                a(class="waves-effect modal-trigger waves-light btn" data-target="modal1")
+                    i(class="material-icons left") create
+                    span Cambiar
+                div(id="modal1" class="modal")
+                    div(class="modal-content")
+                        div(class="row")
+                            div(class="input-field col s12")
+                                h4 Contraseña antigua
+                            div(class="input-field col s12")
+                                input(id="password" type="password" class="validate")
+                                label(for="password") Old password
+                            div(class="input-field col s12")
+                                h4 Contraseña nueva
+                            div(class="input-field col s12")
+                                input(id="password2" type="password" class="validate")
+                                label(for="password2") New password
+                    div(class="modal-footer")
+                        a(href="#!" class="modal-close waves-effect waves-green btn-flat") Cambiar
+            div(class="col s12")
                 h3 Olvido la contraseña
-                a(class="waves-effect waves-light btn")
+                a(class="waves-effect waves-light btn modal-trigger" data-target="modal2")
                     i(class="material-icons left") create
                     span Recuperar
+                div(id="modal2" class="modal")
+                    div(class="modal-content")
+                        div(class="row")
+                            div(class="input-field col s12")
+                                h4 Email
+                            div(class="input-field col s12")
+                                input(id="email" type="email" class="validate")
+                                label(for="email") email
+                    div(class="modal-footer")
+                        a(href="#!" class="modal-close waves-effect waves-green btn-flat") Enviar
             div(class = "col s12")
                 h3 Pregunta secreta
             div(class = "input-field col s6")
@@ -20,11 +50,38 @@ block content2
                 input(id="icon_respuesta" value="Zorro" disabled  type="text" class="validate")
                 label(for="icon_respuesta") Respuesta
             div(class = "col s12 offset-s9")
-                a(class="waves-effect waves-light btn")
+                a(class="waves-effect waves-light btn modal-trigger" data-target="modal3")
                     i(class="material-icons left") create
                     span Cambiar respuesta
+                div(id="modal3" class="modal")
+                    div(class="modal-content")
+                        div(class="row")
+                            div(class="input-field col s12")
+                                h4 Nueva pregunta
+                            div(class="input-field col s12")
+                                select
+                                    option(value="" disabled selected) Elige una opcion
+                                    option(value="1") ¿Cual es tu animal favorito?
+                                    option(value="2") ¿Cual es el nombre de tu primera mascota?
+                                    option(value="3") ¿AHHHHH?
+                                label Pregunta
+                            div(class="input-field col s12")
+                                h4 Nueva respuesta
+                            div(class="input-field col s12")
+                                input(id="respuesta" type="text" class="validate")
+                                label(for="respuesta") Respuesta
+                    div(class="modal-footer")
+                        a(href="#!" class="modal-close waves-effect waves-green btn-flat") Cambiar
             div(class = "col s12")
                 h3 Eliminar cuenta
-                a(class="waves-effect waves-light btn")
+                a(class="waves-effect waves-light btn modal-trigger" data-target="modal4")
                     i(class="material-icons left") delete
                     span Eliminar
+                div(id="modal4" class="modal")
+                    div(class="modal-content")
+                        div(class="row")
+                            div(class="input-field col s12")
+                                h4 ¿Seguro que desea eliminar su cuenta?
+                                p Al eliminar su cuenta se perdera toda su informacion y no podra recuperarla. ¿Esta seguro de realizar esta accion?
+                    div(class="modal-footer")
+                        a(href="#!" class="modal-close waves-effect waves-green btn-flat") Acepto
