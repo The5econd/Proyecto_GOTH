@@ -5,3 +5,7 @@
   display: flex;
   padding-bottom: 0.5rem;
 }
+.archivoImg{
+  display: inline-block;
+  padding: 2rem;
+}
