@@ -22,8 +22,5 @@ router.get('/Playlist', function(req, res, next) {
   res.render('profilePlaylist');
 });
 
-router.get('/Videos', function(req, res, next) {
-  res.render('profileVideo');
-});
 
 module.exports = router;
