@@ -10,7 +10,7 @@ block content
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal1") signin
             div(id="modal1" class="modal")
               div(class="modal-content")
-                form(method='POST' action='/users/signin')
+                form(method='POST' action='/')
                   div(class="input-field")
                       input(id="email" type='email' name='email' require value=email?email:'')
                       label(for="email" style="font-size:1rem") Email
@@ -24,7 +24,7 @@ block content
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal2") signup
             div(id="modal2" class="modal")
               div(class="modal-content")
-                form(method='POST' action='/users/signup')
+                form(method='POST' action='/')
                   div(class="input-field")
                       input(id="email1" type='email' name='email' require value=email?email:'')
                       label(for="email1" style="font-size:1rem") Email
@@ -58,10 +58,33 @@ block content
         
 
   else
-    //block contentenido
-    h1 hola
-
-    a(href="users/logout") logout
+    main
+      nav
+        .nav-wrapper
+          a.brand-logo(href='#') Logo
+          ul#nav-mobile.right.hide-on-med-and-down
+            li.input-field
+              div
+                form
+                  div
+                    input#search(type='search', value='Search', style='color: aliceblue', required='')
+                    label.label-icon(for='search')
+                      i.material-icons
+                    i.material-icons close
+            li
+              a(href='sass.html') Sass
+            li
+              a(href='badges.html') Components
+            li
+              a(href='collapsible.html') JavaScript
+    ul#slide-out.sidenav.sidenav-fixed(style = "margin-top: 68px; height: 100%")
+      li
+        a(href='/playlist') Playlists
+      li
+        a(href='/profile') Configuracion
+      li
+        a(href="users/logout") logout
+    
 
 
 
