@@ -1,5 +1,67 @@
-extends layout
+extend layout
+block content 
+  if !session.user
+    nav
+      div(class="nav-wrapper #455a64 blue-grey darken-2")
+        a(href="#" class="brand-logo")
+          i(class="material-icons prefix large") library_music
+        ul(id="nav-mobile" class="right hide-on-med-and-down")
+          li
+            a(class="waves-effect waves-light btn modal-trigger" data-target="modal1") signin
+            div(id="modal1" class="modal")
+              div(class="modal-content")
+                form(method='POST' action='/users/signin')
+                  div(class="input-field")
+                      input(id="email" type='email' name='email' require value=email?email:'')
+                      label(for="email" style="font-size:1rem") Email
+                  
+                  div(class="input-field")
+                      input(id="pass" type='password' name='password')
+                      label(for="pass" style="font-size:1rem") Password
+                  br
+                  input(type='submit' value='Entrar') 
+          li
+            a(class="waves-effect waves-light btn modal-trigger" data-target="modal2") signup
+            div(id="modal2" class="modal")
+              div(class="modal-content")
+                form(method='POST' action='/users/signup')
+                  div(class="input-field")
+                      input(id="email1" type='email' name='email' require value=email?email:'')
+                      label(for="email1" style="font-size:1rem") Email
+                  
+                  div(class="input-field")
+                      input(id="pass1" type='password' name='password')
+                      label(for="pass1" style="font-size:1rem") Password
+                  br
+                  input(type='submit' value='Registrar')
 
-block content
-  h1= title
-  p Welcome to #{title}
+    .carousel.carousel-slider.center(style='height: 400px;')
+      .carousel-fixed-item.center.with-indicators
+        a.btn.waves-effect.white.grey-text.darken-text-2 button
+      .carousel-item.red.white-text(href='#one!', style='z-index: -1; opacity: 1; visibility: visible; transform: translateX(0px) translateX(-688px) translateZ(0px);')
+        h2 First Panel
+        p.white-text This is your first panel
+      .carousel-item.amber.white-text.active(href='#two!', style='transform: translateX(0px) translateX(0px) translateX(0px) translateZ(0px); z-index: 0; opacity: 1; visibility: visible;')
+        h2 Second Panel
+        p.white-text This is your second panel
+      .carousel-item.green.white-text(href='#three!', style='transform: translateX(0px) translateX(688px) translateZ(0px); z-index: -1; opacity: 1; visibility: visible;')
+        h2 Third Panel
+        p.white-text This is your third panel
+      .carousel-item.blue.white-text(href='#four!', style='transform: translateX(0px) translateX(-1376px) translateZ(0px); z-index: -2; opacity: 1; visibility: visible;')
+        h2 Fourth Panel
+        p.white-text This is your fourth panel
+      ul.indicators
+        li.indicator-item
+        li.indicator-item.active
+        li.indicator-item
+        li.indicator-item
+        
+
+  else
+    //block contentenido
+    h1 hola
+
+    a(href="users/logout") logout
+
+
+
