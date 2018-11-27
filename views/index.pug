@@ -11,7 +11,7 @@ block content
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal1") signin
             div(id="modal1" class="modal")
               div(class="modal-content")
-                div=err
+                //div=err
                 form(method='POST' action='users/signin')
                   div(class="input-field")
                       input(id="email" type='email' name='email' require value=email?email:'')
@@ -28,12 +28,24 @@ block content
               div(class="modal-content")
                 form(method='POST' action='users/signup')
                   div(class="input-field")
+                    input(id="username" type='text' name='username')
+                    label(for="username" style="font-size:1rem") Username
+
+                  div(class="input-field")
                     input(id="email1" type='email' name='email' require value=email?email:'')
                     label(for="email1" style="font-size:1rem") Email
                 
                   div(class="input-field")
                       input(id="pass1" type='password' name='password')
                       label(for="pass1" style="font-size:1rem") Password
+
+                  div(class="input-field")
+                      input(id="pregunta" type='text' name='pregunta')
+                      label(for="pregunta" style="font-size:1rem") Pregunta
+
+                  div(class="input-field")
+                      input(id="respuesta" type='text' name='respuesta')
+                      label(for="respuesta" style="font-size:1rem") Respuesta
                   br
                   input(type='submit' value='Registrar')
 
