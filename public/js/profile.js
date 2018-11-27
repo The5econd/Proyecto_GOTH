@@ -1,8 +1,4 @@
 
-$('.carousel.carousel-slider').carousel({
-    fullWidth: true,
-    indicators: true
-  });
 
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.collapsible');

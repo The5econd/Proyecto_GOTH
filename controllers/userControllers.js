@@ -17,19 +17,29 @@ AuthController.store = async function (req, res) {
     //obteniendo los datos del usuario
     let user = {
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        username: req.body.username,
+        seguridad: {
+            pregunta: req.body.pregunta,
+            respuesta: req.body.respuesta
+        }
     }
     /*alamcenando el usuario*/
     await User.create(user, (error, user) => { 
         if (error) // si se produce algun error
             //Devolvemos una vista con los mensajes de error
-            return res.render('signup', { err: error, email: user.email });
+            return res.render('index', { err: error, email: user.email });          
         else {
             //Almacenamos los datos de la consulta en el objeto data
             let data = {
                 userId: user._id.toString(),
                 email: user.email,
-                password: user.password
+                password: user.password,
+                username: user.username,
+                seguridad: {
+                    pregunta: req.body.pregunta,
+                    respuesta: req.body.respuesta
+                }
             }
             //hash es el mé que nos permite encriptar el password
             //con 10 le indicamos cuantas veces realizara la encriptación
@@ -61,8 +71,9 @@ AuthController.signin = function (req, res,next) {
     //user autentication es el metodo que nos permitira ingresar al sistema
     User.authenticate(req.body.email, req.body.password, (error, user) => {
         if (error || !user) {
-            res.render('signin', { err: error, email: req.body.email });
-            //return res.send("Ddd");
+            return res.render('index', { err: error, email: req.body.email });
+            //return res.send("Usuario ya existente");
+            //return res.send({ err: error, email: user.email });
         }
         else {
                 data.userId= user._id.toString(),

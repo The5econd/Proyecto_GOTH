@@ -1,21 +1,21 @@
 extends nav
 block contentMain
     div(class="row")
-        div(class="col s3 card" style="padding:2rem;margin-right: 1rem;")
+        div(class="col s3 card" style="padding:2rem;margin-right: 1rem;" name="postForm")
             div(class="input-field col s10 offsite-s1")
-                input(id="icon_cancion" type="text" class="validate")
-                label(for="icon_cancion") Cancion
+                input(name="nombre" type="text" class="validate")
+                label(for="nombre") Cancion
             div(class="input-field col s10 offsite-s1")
-                input(id="icon_artista" type="text" class="validate")
-                label(for="icon_artista") Artista
+                input(name="Artista" type="text" class="validate")
+                label(for="Artista") Artista
             div(class="input-field col s10 offsite-s1")
-                input(id="icon_album" type="text" class="validate")
-                label(for="icon_album") Album
+                input(name="Album" type="text" class="validate")
+                label(for="Album") Album
             div(class="col s10 offsite-s3")
-                a(class="waves-effect waves-light btn")
-                    i(class="material-icons left") create
-                    span Agregar 
-        form(class="col s8 card" style="padding:2rem;" method="post" action="")
+                a(class="btn waves-effect waves-light" type="button" onClick="guardar()")
+                    i(class="material-icons right") create
+                    span Agregar
+        form(class="col s8 card" style="padding:2rem;" method="post")
                 div(class="col s4 offset")
                     img(class="materialboxed" width="400" src="/images/black_background.jpg")
                     div(class="file-field input-field")
@@ -30,12 +30,12 @@ block contentMain
                 div(class="col s12")
                     table
                         thead
-                            tr
-                                th Nombre
-                                th Artista
-                                th Album
-                        tbody
+                            th Nombre
+                            th Artista
+                            th Album
+                        tbody(class="posts")
                 div(class = "col s4 offset-s10" style="margin-top: 1rem;")
                     button(class="btn waves-effect waves-light" type="submit" name="action")
                         span POST
                         i(class="material-icons right") send
+    script(src="/js/main.js")
