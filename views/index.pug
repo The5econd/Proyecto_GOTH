@@ -1,5 +1,6 @@
 extend layout
 block content 
+  div=err
   if !session.user
     nav
       div(class="nav-wrapper #455a64 blue-grey darken-2")
@@ -10,6 +11,7 @@ block content
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal1") signin
             div(id="modal1" class="modal")
               div(class="modal-content")
+                //div=err
                 form(method='POST' action='users/signin')
                   div(class="input-field")
                       input(id="email" type='email' name='email' require value=email?email:'')
@@ -26,21 +28,32 @@ block content
               div(class="modal-content")
                 form(method='POST' action='users/signup')
                   div(class="input-field")
-                      input(id="email1" type='email' name='email' require value=email?email:'')
-                      label(for="email1" style="font-size:1rem") Email
-                  
+                    input(id="username" type='text' name='username')
+                    label(for="username" style="font-size:1rem") Username
+
+                  div(class="input-field")
+                    input(id="email1" type='email' name='email' require value=email?email:'')
+                    label(for="email1" style="font-size:1rem") Email
+                
                   div(class="input-field")
                       input(id="pass1" type='password' name='password')
                       label(for="pass1" style="font-size:1rem") Password
+
+                  div(class="input-field")
+                      input(id="pregunta" type='text' name='pregunta')
+                      label(for="pregunta" style="font-size:1rem") Pregunta
+
+                  div(class="input-field")
+                      input(id="respuesta" type='text' name='respuesta')
+                      label(for="respuesta" style="font-size:1rem") Respuesta
                   br
                   input(type='submit' value='Registrar')
 
     .carousel.carousel-slider.center(style='height: 400px;')
-      .carousel-fixed-item.center.with-indicators
-        a.btn.waves-effect.white.grey-text.darken-text-2 button
-      .carousel-item.red.white-text(href='#one!', style='z-index: -1; opacity: 1; visibility: visible; transform: translateX(0px) translateX(-688px) translateZ(0px);')
-        h2 First Panel
-        p.white-text This is your first panel
+      //.carousel-fixed-item.center.with-indicators
+        //a.btn.waves-effect.white.grey-text.darken-text-2 button
+      .carousel-item
+        img(src="/images/evolve.jpg" style="width=100%" height="100%")
       .carousel-item.amber.white-text.active(href='#two!', style='transform: translateX(0px) translateX(0px) translateX(0px) translateZ(0px); z-index: 0; opacity: 1; visibility: visible;')
         h2 Second Panel
         p.white-text This is your second panel
@@ -55,20 +68,43 @@ block content
         li.indicator-item.active
         li.indicator-item
         li.indicator-item
+
+    footer(class="page-footer #455a64 blue-grey darken-2")
+      .container
+        .row
+          .col.l6.s12
+            h5.white-text Footer Content
+            p.grey-text.text-lighten-4 You can use rows and columns here to organize your footer content.
+          .col.l4.offset-l2.s12
+            h5.white-text Links
+            ul
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 1
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 2
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 3
+              li
+                a.grey-text.text-lighten-3(href='#!') Link 4
+      .footer-copyright
+        .container
+          | © 2014 Copyright Text
+          a.grey-text.text-lighten-4.right(href='#!') More Links
+      
         
 
   else
     block contenido
       main
         nav
-          .nav-wrapper
+          .nav-wrapper(style='background-color: #4f5283')
             a.brand-logo(href='#') Logo
             ul#nav-mobile.right.hide-on-med-and-down
               li.input-field
                 div
                   form
                     div
-                      input#search(type='search', value='Search', style='color: aliceblue', required='')
+                      input#search(type='search', value='Search', style='color: aliceblue;', required='')
                       label.label-icon(for='search')
                         i.material-icons
                       i.material-icons close
@@ -78,14 +114,65 @@ block content
                 a(href='badges.html') Components
               li
                 a(href='collapsible.html') JavaScript
-      ul#slide-out.sidenav.sidenav-fixed(style = "margin-top: 68px; height: 100%")
+      ul#slide-out.sidenav.sidenav-fixed(style='margin-top: 68px; height: 100%;')
         li
           a(href='/playlist') Playlists
         li
           a(href='/profile') Configuracion
         li
-          a(href="users/logout") logout
-      
-
-
-
+          a(href='users/logout') logout
+      .cards
+        .col.s12.m7
+          .card
+            .card-content
+              p JAVI SE LA COME
+            .card-action
+              a(href='#') DOBLADA AL ESPANIOL
+          .card
+            .card-content
+              p JAVI SE LA COME
+            .card-action
+              a(href='#') DOBLADA AL ESPANIOL
+          .card
+            .card-content
+              p JAVI SE LA COME
+            .card-action
+              a(href='#') DOBLADA AL ESPANIOL
+      section
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        ul.pagination(style='position: absolute; left: 25%')
+          li.disabled
+            a(href='#!')
+              i.material-icons chevron_left
+          li.active
+            a(href='#!') 1
+          li.waves-effect
+            a(href='#!') 2
+          li.waves-effect
+            a(href='#!') 3
+          li.waves-effect
+            a(href='#!') 4
+          li.waves-effect
+            a(href='#!') 5
+          li.waves-effect
+            a(href='#!')
+              i.material-icons chevron_right
