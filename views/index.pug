@@ -10,7 +10,7 @@ block content
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal1") signin
             div(id="modal1" class="modal")
               div(class="modal-content")
-                form(method='POST' action='/')
+                form(method='POST' action='users/signin')
                   div(class="input-field")
                       input(id="email" type='email' name='email' require value=email?email:'')
                       label(for="email" style="font-size:1rem") Email
@@ -24,7 +24,7 @@ block content
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal2") signup
             div(id="modal2" class="modal")
               div(class="modal-content")
-                form(method='POST' action='/')
+                form(method='POST' action='users/signup')
                   div(class="input-field")
                       input(id="email1" type='email' name='email' require value=email?email:'')
                       label(for="email1" style="font-size:1rem") Email
