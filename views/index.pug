@@ -85,14 +85,14 @@ block content
     block contenido
       main
         nav
-          .nav-wrapper
+          .nav-wrapper(style='background-color: #4f5283')
             a.brand-logo(href='#') Logo
             ul#nav-mobile.right.hide-on-med-and-down
               li.input-field
                 div
                   form
                     div
-                      input#search(type='search', value='Search', style='color: aliceblue', required='')
+                      input#search(type='search', value='Search', style='color: aliceblue;', required='')
                       label.label-icon(for='search')
                         i.material-icons
                       i.material-icons close
@@ -102,14 +102,65 @@ block content
                 a(href='badges.html') Components
               li
                 a(href='collapsible.html') JavaScript
-      ul#slide-out.sidenav.sidenav-fixed(style = "margin-top: 68px; height: 100%")
+      ul#slide-out.sidenav.sidenav-fixed(style='margin-top: 68px; height: 100%;')
         li
           a(href='/playlist') Playlists
         li
           a(href='/profile') Configuracion
         li
-          a(href="users/logout") logout
-      
-
-
-
+          a(href='users/logout') logout
+      .cards
+        .col.s12.m7
+          .card
+            .card-content
+              p JAVI SE LA COME
+            .card-action
+              a(href='#') DOBLADA AL ESPANIOL
+          .card
+            .card-content
+              p JAVI SE LA COME
+            .card-action
+              a(href='#') DOBLADA AL ESPANIOL
+          .card
+            .card-content
+              p JAVI SE LA COME
+            .card-action
+              a(href='#') DOBLADA AL ESPANIOL
+      section
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        .sectionn
+          div
+            .card-panel.light-blue.darken-4(class='#01579b')
+              span.white-text
+                a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
+        ul.pagination(style='position: absolute; left: 25%')
+          li.disabled
+            a(href='#!')
+              i.material-icons chevron_left
+          li.active
+            a(href='#!') 1
+          li.waves-effect
+            a(href='#!') 2
+          li.waves-effect
+            a(href='#!') 3
+          li.waves-effect
+            a(href='#!') 4
+          li.waves-effect
+            a(href='#!') 5
+          li.waves-effect
+            a(href='#!')
+              i.material-icons chevron_right

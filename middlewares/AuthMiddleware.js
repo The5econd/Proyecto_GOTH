@@ -14,7 +14,7 @@ AuthMiddleware.isAuthentication = function (req, res, next) {
     User.findOne({ email: data.email })
         .exec(function (err, user) {
             if (err) {
-                return next(err);
+                return res.redirect('/');
             }
             else {
                 if (!user) {
@@ -28,7 +28,7 @@ AuthMiddleware.isAuthentication = function (req, res, next) {
                             return res.redirect('/');
                         }
                         else {
-                            return next(err);
+                            return res.redirect('/');
                         }
                     });
                 }
