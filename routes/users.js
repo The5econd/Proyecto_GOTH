@@ -13,11 +13,11 @@ router.get('/', function(req, res, next) {
 });
 
 //ruta que nos devolvera el formulario para crear usuarios
-router.get('/signup',AuthController.create);
+//router.get('/signup',AuthController.create);
 //ruta que enviara los datos del usuario para almacenarlos en la base de datos
 router.post('/signup',AuthController.store);
 //ruta que nos devolvera el formulario para ingresar
-router.get('/signin',AuthController.login);
+//router.get('/signin',AuthController.login);
 //ruta que enviara los datos del usuario para ingresar al sistema
 router.post('/signin',AuthController.signin);
 //ruta para salir del sistema
