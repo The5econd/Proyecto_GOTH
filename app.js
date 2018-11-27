@@ -43,6 +43,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use((req,res,next)=>{
   app.locals.session = req.session;
   next();
@@ -53,6 +54,7 @@ app.use('/users', usersRouter);
 app.use('/profile',profileRouter);
 app.use('/foro',foroRouter);
 app.use('/playlist',playlistRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
