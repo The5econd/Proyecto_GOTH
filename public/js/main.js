@@ -14,13 +14,14 @@ function guardar() {
 };
 
 function mostrar() {
+    console.log('Aaaaaaaaaaaaaaahhhhh');
     let data = {
-        tit: JSON.parse(session.publicaciones).titulo,
-        cuer: JSON.parse(session.publicaciones).texto
+        tit:' HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+        cuer: 'QUE TAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL'
     };
     let tbody = document.getElementById("sec1");
-    let sec = document.createElement("section");
-    sec.innerHTML = `<div class="sectionn">
+    let div = document.createElement("div");
+    div.innerHTML = `<div class="sectionn">
                         <div class="">
                             <div class="card-panel #80cbc4 teal lighten-3">
                                 <a class="linkss waves-effect waves-light btn modal-trigger" href="#modal1">
@@ -36,4 +37,4 @@ function mostrar() {
                         </div>
                     </div>`;
     tbody.appendChild(div);
-}
+};
