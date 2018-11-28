@@ -3,13 +3,13 @@ block contentMain
     div(class="row")
         div(class="col s3 card" style="padding:2rem;margin-right: 1rem;" name="postForm")
             div(class="input-field col s10 offsite-s1")
-                input(name="nombre" type="text" class="validate")
+                input(id="nombre" type="text" class="validate")
                 label(for="nombre") Cancion
             div(class="input-field col s10 offsite-s1")
-                input(name="Artista" type="text" class="validate")
+                input(id="Artista" type="text" class="validate")
                 label(for="Artista") Artista
             div(class="input-field col s10 offsite-s1")
-                input(name="Album" type="text" class="validate")
+                input(id="Album" type="text" class="validate")
                 label(for="Album") Album
             div(class="col s10 offsite-s3")
                 a(class="btn waves-effect waves-light" type="button" onClick="guardar()")
