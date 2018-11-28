@@ -4,7 +4,8 @@ const { Schema } = mongoose; //Objeto Schema para realizar diferentes operacione
 const PublicacionesSchema = new Schema({
     //atributos con sus validaciones
     titulo: {type:String},
-    texto: {type:String}
+    texto: {type:String},
+    //autor:{ type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 
