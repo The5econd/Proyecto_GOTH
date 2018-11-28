@@ -7,7 +7,7 @@ const UserSchema = new Schema({
     //atributos con sus validaciones
     email: {type:String, required:true, unique:true}, 
     password: {type:String, required:true},
-    username: {type:String, required:true},
+    username: {type:String, required:true,unique:true},
     seguridad:{
         pregunta: {type:String},
         respuesta: {type:String}
@@ -36,6 +36,8 @@ User.findOne({ email: email })
             })
         });
 }
+
+
 
 UserSchema.pre('save', function (next) {
     var user = this;

@@ -7,9 +7,10 @@ controller.insert = function(req,res){
     let publicacionNew = new publicacionModel({
         titulo: req.body.titulo,
         texto: req.body.texto,
+        autor: JSON.parse(req.session.user).email
     });
 
-    console.log(publicacionNew);
+    //console.log(publicacionNew);
 
     publicacionNew.save(function(err,insertado){
         if(err){
