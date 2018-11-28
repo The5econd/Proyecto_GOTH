@@ -113,7 +113,7 @@ block content
                 a.navbar_color(href='#')
                   i.fas.fa-globe-americas
               li
-                a.navbar_color(href='')
+                a.navbar_color(href='' onClick="mostrar()")
                   i.fab.fa-forumbee
               li
                 a.navbar_color(href='')
@@ -126,13 +126,13 @@ block content
             img.circle(src='/images/pf.png', alt='', style='height: 90px; width: 90px')
           div(style='display: flex; flex-direction:column; flex-wrap:wrap')
             div
-              p(style='margin: 0.43em; color: #004d40; font-size: 1.5em;') Usuario
+              p(style='margin: 0.43em; color: #004d40; font-size: 1.5em') #{JSON.parse(session.user).username}
             div
-              p(style='margin: 1em; color: #004d40; font-size: 0.7em') pendejo@cabron.com
+              p(style='margin: 1em; color: #004d40; font-size: 0.7em') #{JSON.parse(session.user).email}
         li
           a(href='/playlist', style='border-bottom: solid 1px #00897b; border-top: solid 1px #00897b') Playlists
         li
-          a(href='/foro', style='border-bottom: solid 1px #00897b') Playlists
+          a(href='/foro', style='border-bottom: solid 1px #00897b') Forums
         li
           a(href='/profile') Configuracion
       .cards
@@ -152,7 +152,7 @@ block content
               p JAVI SE LA COME
             .card-action
               a(href='#') DOBLADA AL ESPANIOL
-      section
+      #sec1
         ul.pagination(style='position: absolute; left: 25%')
           li.disabled
             a(href='#!')
