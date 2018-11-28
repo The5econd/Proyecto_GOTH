@@ -110,7 +110,7 @@ block content
                 a.navbar_color(href='#')
                   i.fas.fa-globe-americas
               li
-                a.navbar_color(href='' onClick="mostrar()")
+                a(class ="navbar_color" onClick="mostrar()")
                   i.fab.fa-forumbee
               li
                 a.navbar_color(href='')
@@ -149,8 +149,8 @@ block content
               p JAVI SE LA COME
             .card-action
               a(href='#') DOBLADA AL ESPANIOL
-      #sec1
-        ul.pagination(style='position: absolute; left: 25%')
+      section#sec1(action="/api/post", method="GET")
+        ul.pagination(style='position: absolute; left: 25%; bottom: 0')
           li.disabled
             a(href='#!')
               i.material-icons chevron_left
