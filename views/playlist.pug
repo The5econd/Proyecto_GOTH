@@ -15,18 +15,18 @@ block contentMain
                 a(class="btn waves-effect waves-light" type="button" onClick="guardar()")
                     i(class="material-icons right") create
                     span Agregar
-        form(class="col s8 card" style="padding:2rem;" method="post")
+        form(class="col s8 card" style="padding:2rem;" method="post" enctype="multipart/form-data")
                 div(class="col s4 offset")
-                    img(name="imagenPlaylist" class="materialboxed" width="400" src="/images/black_background.jpg")
+                    img(name="imagenPlaylist" class="materialboxed" width="400" src="/images/playlist.png")
                     div(class="file-field input-field")
                         div(class="btn")
                             span Cambiar
-                            input(id="myFile" type="file")
+                            input(id="archivo" name="archivo" type="file")
                         div(class="file-path-wrapper")
-                            input(class="file-path validate" type="text")
+                            input(class="file-path validate" for="archivo" type="text")
                 div(class="input-field col s6 offset-s2")
-                    input(id="icon_titulo" type="text" class="validate")
-                    label(for="icon_titulo") Titulo
+                    input(id="titulo" name="titulo" type="text" class="validate")
+                    label(for="titulo") Titulo
                 div(class="col s12")
                     table
                         thead

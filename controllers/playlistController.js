@@ -1,39 +1,46 @@
-/*
 const mongoose = require('mongoose'); //libreria para el manejo a la conexion de bases de datos
 const playlistModel = require("../models/playlist"); //modelo publicacioes.
 const controller = {}; // objeto que tendra la logica de nuestra web
-const cancionesModel = require("../models/canciones");
+var fs = require('fs.extra');
 
 controller.insert = function(req,res){
-    let galeriaCanciones = new cancionesModel({
-        nombre: req.body.nombre,
-        album: req.body.Album,
-        artista: req.body.Artista
-    });
-
-    let newPlaylist = new playlistModel({
+    //Nombre de la imagen
+    var extension = req.files.archivo.name;
+    if(extension == ""){
+        extension = "playlist.png";
+    }
+    //Data que se guardara en la base
+    let data = {
         titulo: req.body.titulo,
-        imagen: req.body.imagen,
-        //canciones: [galeriaCanciones]
-    });
-
-    console.log(newPlaylist);
-
-    newPlaylist.save(function(err,insertado){
-        if(err){
+        imagenExtension: extension,
+        usuario:JSON.parse(session.user).id,
+        galeria: []
+    };
+    //Se seleccionan todas las canciones
+    console.log(req.body.nombre);
+    console.log(req.body.album);
+    console.log(req.body.artista);
+    //Se crea el modelo poneindo como datos la data
+    var newPlaylist = playlistModel(data);
+    //Se guarda
+    newPlaylist.save(function(err){
+        if(!err){
+            //Se cambia la direccion para guardar la imagen en public/images
+            if(req.files.archivo.name != ""){
+                fs.copy(req.files.archivo.path, "public/images/"+extension);
+            }
+            res.json({
+                ok: true
+            });
+        } else {
             res.status(500);
             res.json({
                 ok: false,
                 err
-            });
-        } else {
-            res.json({
-                ok: true,
-                insertado
             });
         }
     });
 };
 
 
-module.exports = controller;*/
+module.exports = controller;

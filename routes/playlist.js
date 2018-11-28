@@ -6,6 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('playlist');
 });
 
-//router.post('/', playlistController.insert);
+router.post('/', playlistController.insert);
 
 module.exports = router;

@@ -7,9 +7,11 @@ function guardar() {
     console.log(data.nombre);
     let tbody = document.getElementsByClassName("posts")[0];
     let tr = document.createElement("tr");
-    tr.innerHTML = `<td>${data.nombre}</td>
-                        <td>${data.Artista}</td>
-                        <td>${data.Album}</td>`;
+    tr.className = "cancion";
+    tr.id="tr";
+    tr.innerHTML = `<td id="nombre" name="nombre">${data.nombre}</td>
+                        <td id="artista" name="artista">${data.Artista}</td>
+                        <td id="album" name="album">${data.Album}</td>`;
     tbody.appendChild(tr)
 };
 
