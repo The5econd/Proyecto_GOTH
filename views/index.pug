@@ -97,43 +97,55 @@ block content
     block contenido
       main
         nav
-          .nav-wrapper(style='background-color: #4f5283')
-            a.brand-logo(href='#') Logo
+          .nav-wrapper.teal.darken-1(class='#00897b')
+            a.navbar_color(style='margin-left: 1em; font-size: 1.5em')
+              i.fas.fa-crow
+              | Goth music
             ul#nav-mobile.right.hide-on-med-and-down
               li.input-field
                 div
                   form
                     div
-                      input#search(type='search', value='Search', style='color: aliceblue;', required='')
+                      input#search(type='search', placeholder='Search..', required='')
                       label.label-icon(for='search')
                         i.material-icons
-                      i.material-icons close
               li
-                a(href='sass.html') Sass
+                a.navbar_color(href='#')
+                  i.fas.fa-globe-americas
               li
-                a(href='badges.html') Components
+                a.navbar_color(href='')
+                  i.fab.fa-forumbee
               li
-                a(href='collapsible.html') JavaScript
-      ul#slide-out.sidenav.sidenav-fixed(style='margin-top: 68px; height: 100%;')
+                a.navbar_color(href='')
+                  i.fas.fa-music
+              li
+                a.navbar_color(href='users/logout') Log out
+      ul#slide-out.sidenav.sidenav-fixed.teal.lighten-5(class='#e0f2f1', style='margin-top: 66px; height: 100%;')
+        .perfill
+          div(style='border-right: solid 1px #00897b; padding-right: 1.5em;')
+            img.circle(src='/images/pf.png', alt='', style='height: 90px; width: 90px')
+          div(style='display: flex; flex-direction:column; flex-wrap:wrap')
+            div
+              p(style='margin: 0.43em; color: #004d40; font-size: 1.5em;') Usuario
+            div
+              p(style='margin: 1em; color: #004d40; font-size: 0.7em') pendejo@cabron.com
         li
-          a(href='/playlist') Playlists
+          a(href='/playlist', style='border-bottom: solid 1px #00897b; border-top: solid 1px #00897b') Playlists
         li
           a(href='/profile') Configuracion
-        li
-          a(href='users/logout') logout
       .cards
         .col.s12.m7
-          .card
+          .card.teal.lighten-5(class='#e0f2f1')
+            .card-content
+              p JAVI SE LA COME
+            .card-action(style='border-top: solid 1px #00897b')
+              a(href='#') DOBLADA AL ESPANIOL
+          .card.teal.lighten-5(class='#e0f2f1')
             .card-content
               p JAVI SE LA COME
             .card-action
               a(href='#') DOBLADA AL ESPANIOL
-          .card
-            .card-content
-              p JAVI SE LA COME
-            .card-action
-              a(href='#') DOBLADA AL ESPANIOL
-          .card
+          .card.teal.lighten-5(class='#e0f2f1')
             .card-content
               p JAVI SE LA COME
             .card-action
@@ -141,22 +153,22 @@ block content
       section
         .sectionn
           div
-            .card-panel.light-blue.darken-4(class='#01579b')
+            .card-panel.teal.lighten-3(class='#80cbc4')
               span.white-text
                 a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
         .sectionn
           div
-            .card-panel.light-blue.darken-4(class='#01579b')
+            .card-panel.teal.lighten-3(class='#80cbc4')
               span.white-text
                 a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
         .sectionn
           div
-            .card-panel.light-blue.darken-4(class='#01579b')
+            .card-panel.teal.lighten-3(class='#80cbc4')
               span.white-text
                 a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
         .sectionn
           div
-            .card-panel.light-blue.darken-4(class='#01579b')
+            .card-panel.teal.lighten-3(class='#80cbc4')
               span.white-text
                 a.linkss(href='#') ACA VAN LOS LINKS DE MIERDA LA PUTA MADRE
         ul.pagination(style='position: absolute; left: 25%')
