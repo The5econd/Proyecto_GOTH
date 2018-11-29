@@ -79,6 +79,7 @@ AuthController.signin = function (req, res,next) {
                 data.userId= user._id.toString(),
                 data.email= user.email,
                 data.password=user.password
+                data.username=user.username;
             
             //este método nos encriptara el userId para que sea alamcenado en la sesion
             bcrypt.hash(data.userId, 10, function (err, hash) {
