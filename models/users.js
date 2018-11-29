@@ -11,7 +11,11 @@ const UserSchema = new Schema({
     seguridad:{
         pregunta: {type:String},
         respuesta: {type:String}
-    }
+    },
+    nombre:{type:String, required:true},
+    apellido:{type:String, required:true},
+    sexo:{type:String, required:true},
+    cuenta:{type:String, required:true}
     
     
     

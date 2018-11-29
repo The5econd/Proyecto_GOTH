@@ -3,6 +3,7 @@ const User = require("../models/users"); //modelo usuarios.
 const AuthController = {}; // objeto que tendra la logica de nuestra web
 const bcrypt = require('bcrypt'); //libreria para encriptar
 
+
 AuthController.login = function (req, res, next) {
     res.render('signin'); //
 }  
@@ -22,8 +23,13 @@ AuthController.store = async function (req, res) {
         seguridad: {
             pregunta: req.body.pregunta,
             respuesta: req.body.respuesta
-        }
+        },
+        nombre:req.body.name,
+        apellido:req.body.apellido,
+        sexo:req.body.sexo,
+        cuenta: req.body.cuenta
     }
+    
     /*alamcenando el usuario*/
     await User.create(user, (error, user) => { 
         if (error) // si se produce algun error
@@ -39,8 +45,13 @@ AuthController.store = async function (req, res) {
                 seguridad: {
                     pregunta: req.body.pregunta,
                     respuesta: req.body.respuesta
-                }
+                },
+                nombre:req.body.name,
+                apellido:req.body.apellido,
+                sexo:req.body.sexo,
+                cuenta: req.body.cuenta
             }
+            //console.log(data.seguridad.pregunta);
             //hash es el mé que nos permite encriptar el password
             //con 10 le indicamos cuantas veces realizara la encriptación
             bcrypt.hash(data.userId, 10, function (err, hash) {
@@ -78,7 +89,18 @@ AuthController.signin = function (req, res,next) {
         else {
                 data.userId= user._id.toString(),
                 data.email= user.email,
-                data.password=user.password
+                data.password=user.password,
+                data.username=user.username,
+                data.seguridad= {
+                    pregunta: req.body.pregunta,
+                    respuesta: req.body.respuesta
+                },
+                data.nombre=req.body.name,
+                data.apellido=req.body.apellido,
+                data.sexo=req.body.sexo
+                data.cuenta= req.body.cuenta
+
+       
             
             //este método nos encriptara el userId para que sea alamcenado en la sesion
             bcrypt.hash(data.userId, 10, function (err, hash) {
@@ -107,6 +129,39 @@ AuthController.logout = function (req, res, next) {
             }
         });
     }
+}
+
+AuthController.update = function (req, res) {
+    var sess = req.session;
+    var sessUser = JSON.parse(sess.user);
+
+    let update = {
+        nombre: req.body.name,
+        email: req.body.email,
+        username: req.body.username
+    };
+
+    sessUser.nombre = update.nombre;
+    sessUser.email = update.email;
+    sessUser.username = update.username;
+
+    User.updateOne({"email": JSON.parse(req.session.user).email.toString()}, update, function(err){
+        if(err){
+            res.status(500);
+            res.json({code:500, err});
+        } else {
+            req.session.user = JSON.stringify(sessUser);
+            req.session.save(function(err){
+                if(err){
+                    res.status(500);
+                    res.json({code:500, err});
+                } else {
+                    console.log("Modificacion realizada");
+                    res.render('profileGeneral');
+                }
+            });
+        }
+    });
 }
 
 module.exports = AuthController;

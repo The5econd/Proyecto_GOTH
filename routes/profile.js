@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var UserController = require('../controllers/userControllers');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,6 +22,8 @@ router.get('/Foros', function(req, res, next) {
 router.get('/Playlist', function(req, res, next) {
   res.render('profilePlaylist');
 });
+
+router.post('/', UserController.update);
 
 
 module.exports = router;

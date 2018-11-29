@@ -31,13 +31,13 @@ let app = {
                 //var respo = [];
                 // respo.add(response[i])
                 let cont = 1;
-                console.log(response.length);
+                //console.log(response.length);
                 for (let i = 0; i < 5; i++) {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';
 
                     let hash = '#';
-                    console.log(response.posts);
+                    //console.log(response.posts);
                     let data = {
                         tit: (response.posts[i]).titulo,
                         cuer: (response.posts[i]).texto,
