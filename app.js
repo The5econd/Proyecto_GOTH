@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var formidalble = require("express-form-data");
 
 /*librerias que hemos instalado*/
 //Para el manejo de sesiones.
@@ -18,6 +19,7 @@ var profileRouter = require('./routes/profile');
 var foroRouter = require('./routes/foro');
 var playlistRouter = require('./routes/playlist');
 var publicacionRouter = require('./routes/publicaciones');
+
 
 var app = express();
 require('./configs/database');
@@ -36,7 +38,7 @@ app.use(session({
       autoReconnect: true
   })
   }));
-  
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -44,6 +46,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(formidalble.parse({ keepExtension: true }))
 
 app.use((req,res,next)=>{
   app.locals.session = req.session;

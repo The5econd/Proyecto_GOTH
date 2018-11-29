@@ -29,41 +29,21 @@ function Enable() {
 function bold(){
     var element = document.getElementsByClassName("bold");
     var element1 = document.getElementsByClassName("tobold");
-    var pItem = document.createElement("p")
-    if(element[0].hasAttribute('style')){
-        element[0].removeClass('active');
-    }
-    else{
-        pItem.setAttribute('style',"font-weight: bold;");
-        element1.appendChild(pItem);
-    }
+    var pItem = document.createElement("b")
+    element1[0].appendChild(pItem);
 };
 
 function italiac(){
     var element = document.getElementsByClassName("italiac");
     var element1 = document.getElementsByClassName("toItaliac");
-    var pItem = document.createElement("p")
-    if(element[0].hasAttribute('style')){
-        element[0].removeClass('active');
-
-    }
-    else{
-        pItem.setAttribute('style',"font-style: italic;");
-        element1.appendChild(pItem);
-    }
+    var pItem = document.createElement("i")
+    element1[0].appendChild(pItem);
 };
  function quitar(){
     var element = document.getElementsByClassName("quitar");
     var element1 = document.getElementsByClassName("toItaliac");
     var pItem = document.createElement("p")
-    if(element[0].hasAttribute('style')){
-        element[0].removeClass('active');
-
-    }
-    else{
-        pItem.setAttribute('style',"font-style: italic;");
-        element1.appendChild(pItem);
-    }
+    element1[0].appendChild(pItem);
  }
 
 document.addEventListener('DOMContentLoaded',function(){
