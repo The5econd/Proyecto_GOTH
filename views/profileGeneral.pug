@@ -1,17 +1,17 @@
 extends profile
 block content2
-    form(class="col s12" method="post" action="")
+    form(class="col s12" method="post" action="" enctype="multipart/form-data")
         div(class="row card" style="padding:1.5rem;")
             div(class="col s12 offset-s3")
                 h2 OPCIONES GENERALES
             div(class="col s5")
-                img(class="materialboxed" width="400" src="/images/black_background.jpg")
+                img.circle(src=JSON.parse(session.user).imagen, alt='/images/pf.png', style='height: 250px; width: 250px')
                 div(class="file-field input-field")
                     div(class="btn")
                         span Cambiar
-                        input(type="file")
+                        input(id="imagen" type="file" name="imagen")
                     div(class="file-path-wrapper")
-                        input(class="file-path validate" type="text")
+                        input(class="file-path validate" for="imagen" type="text")
             div(class="input-field col s6")
                 i(class="material-icons prefix") person
                 input(id="icon_name" value=JSON.parse(session.user).nombre disabled type="text" class="validate enable" name="name")
