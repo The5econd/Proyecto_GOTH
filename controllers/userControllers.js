@@ -80,7 +80,7 @@ AuthController.signin = function (req, res,next) {
     //user autentication es el metodo que nos permitira ingresar al sistema
     User.authenticate(req.body.email, req.body.password, (error, user) => {
         if (error || !user) {
-            return res.render('index', { err: error, email: req.body.email });
+            return res.render('signin', { err: error, email: req.body.email });
             //return res.send("Usuario ya existente");
             //return res.send({ err: error, email: user.email });
         }
@@ -112,6 +112,8 @@ AuthController.signin = function (req, res,next) {
                 return res.redirect('/users/profile');
             });
 
+            
+
         }
     });
 };
@@ -129,4 +131,7 @@ AuthController.logout = function (req, res, next) {
     }
 }
 
+AuthController.volver = function (req, res) {
+    req.render('index');
+}
 module.exports = AuthController;

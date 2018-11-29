@@ -7,7 +7,7 @@ controller.insert = function(req,res){
     let publicacionNew = new publicacionModel({
         titulo: req.body.titulo,
         texto: req.body.texto,
-        autor: JSON.parse(req.session.user).email
+        autor: JSON.parse(req.session.user).username
     });
 
     //console.log(publicacionNew);
