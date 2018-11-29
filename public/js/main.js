@@ -8,7 +8,7 @@ function guardar() {
     let tbody = document.getElementsByClassName("posts")[0];
     let tr = document.createElement("tr");
     tr.className = "cancion";
-    tr.id="tr";
+    tr.id = "tr";
     tr.innerHTML = `<td id="nombre" name="nombre">${data.nombre}</td>
                         <td id="artista" name="artista">${data.Artista}</td>
                         <td id="album" name="album">${data.Album}</td>`;
@@ -20,22 +20,31 @@ window.onload = () => {
 }
 let app = {
     init: function () {
-        this.mostrar();
+        //this.mostrarForos();
+        this.foroUser();
     },
 
-    mostrar: function () {
+    foroUser: function(){
+        fetch('/profile/Foros', {
+            method: "GET"
+        }).then(res => res.json())
+            .then(response => {
+                console.log(response);
+            })
+    },
+
+    mostrarForos: function () {
         fetch('/api/post', {
             method: "GET"
         }).then(res => res.json())
             .then(response => {
-                //var respo = [];
-                // respo.add(response[i])
+                var respo = [];
                 let cont = 1;
-                //console.log(response.length);
+                //console.log(response);
+                //let long = response.posts.length;
                 for (let i = 0; i < 5; i++) {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';
-
                     let hash = '#';
                     //console.log(response.posts);
                     let data = {
