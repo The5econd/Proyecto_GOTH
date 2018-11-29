@@ -8,12 +8,6 @@ function guardar() {
     let tbody = document.getElementsByClassName("posts")[0];
     let tr = document.createElement("tr");
     tr.className = "cancion";
-<<<<<<< HEAD
-    tr.id = "tr";
-    tr.innerHTML = `<td id="nombre" name="nombre">${data.nombre}</td>
-                        <td id="artista" name="artista">${data.Artista}</td>
-                        <td id="album" name="album">${data.Album}</td>`;
-=======
     tr.id="tr";
     tr.innerHTML = `<td>
                         <input id="nombre" name="nombre" value="${data.nombre}" type="text"></td>
@@ -21,7 +15,6 @@ function guardar() {
                     <input id="artista" name="artista" value="${data.Artista}" type="text"></td>
                     <td>
                     <input id="album" name="album" value="${data.Album}" type="text"></td>`;
->>>>>>> 79e288b7203cc4022e9cb9020bf79a942b2e942c
     tbody.appendChild(tr)
 };
 
@@ -30,8 +23,8 @@ window.onload = () => {
 }
 let app = {
     init: function () {
-        //this.mostrarForos();
-        this.foroUser();
+        this.mostrarForos();
+        //this.foroUser();
     },
 
     foroUser: function(){
@@ -50,12 +43,8 @@ let app = {
             .then(response => {
                 var respo = [];
                 let cont = 1;
-<<<<<<< HEAD
                 //console.log(response);
                 //let long = response.posts.length;
-=======
-                console.log(response.length);
->>>>>>> 79e288b7203cc4022e9cb9020bf79a942b2e942c
                 for (let i = 0; i < 5; i++) {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';
