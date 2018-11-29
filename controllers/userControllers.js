@@ -26,8 +26,12 @@ AuthController.store = async function (req, res) {
         },
         nombre:req.body.name,
         apellido:req.body.apellido,
+<<<<<<< HEAD
         sexo:req.body.sexo,
         cuenta: req.body.cuenta
+=======
+        sexo:req.body.sexo
+>>>>>>> 10ef45e83eb818be63c04485f70bdaa70e9e330b
     }
     
     /*alamcenando el usuario*/
