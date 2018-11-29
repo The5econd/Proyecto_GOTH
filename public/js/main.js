@@ -23,22 +23,29 @@ window.onload = () => {
 }
 let app = {
     init: function () {
-        this.mostrar();
+        //this.mostrarForos();
+        this.foroUser();
     },
 
-    mostrar: function () {
+    foroUser: function(){
+        fetch('/profile/Foros', {
+            method: "GET"
+        }).then(res => res.json())
+            .then(response => {
+                console.log(response);
+            })
+    },
+
+    mostrarForos: function () {
         fetch('/api/post', {
             method: "GET"
         }).then(res => res.json())
             .then(response => {
-                //var respo = [];
-                // respo.add(response[i])
+                var respo = [];
                 let cont = 1;
-                console.log(response.length);
                 for (let i = 0; i < 5; i++) {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';
-
                     let hash = '#';
                     console.log(response.posts);
                     let data = {

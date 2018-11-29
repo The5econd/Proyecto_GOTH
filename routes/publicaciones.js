@@ -10,5 +10,4 @@ router.post('/', publicacionController.insert);
 //Get all
 router.get('/', publicacionController.getAll);
 
-
-module.exports = router;
+module.exports = router; 
