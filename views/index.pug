@@ -28,6 +28,19 @@ block content
               div(class="modal-content")
                 form(method='POST' action='users/signup')
                   div(class="input-field")
+                    input(id="name" type='text' name='name')
+                    label(for="name" style="font-size:1rem") Nombre
+                  div(class="input-field")
+                    input(id="apellido" type='text' name='apellido')
+                    label(for="apellido" style="font-size:1rem") Apellido
+
+                  .input-field.col.s12
+                    select(id="sexo" name='sexo')
+                      option(value='', disabled='', selected='') Sexo
+                      option(value='Masculino') Masculino
+                      option(value='Femenino') Femenino 
+
+                  div(class="input-field")
                     input(id="username" type='text' name='username')
                     label(for="username" style="font-size:1rem") Username
 
@@ -39,17 +52,27 @@ block content
                       input(id="pass1" type='password' name='password')
                       label(for="pass1" style="font-size:1rem") Password
 
-                  div(class="input-field")
-                      input(id="pregunta" type='text' name='pregunta')
-                      label(for="pregunta" style="font-size:1rem") Pregunta
+                  .input-field.col.s12
+                    select(id="pregunta" name='pregunta')
+                      option(value='', disabled='', selected='') Pregunta de seguridad
+                      option(value='Nombre de mascota de la infancia?') Nombre de mascota de la infancia?
+                      option(value='Nombre de madre?') Nombre de madre?
+                      option(value='Nombre de padre?') Nombre de padre?
+                      option(value='Hobbie favorito?') Hobbie favorito?
 
                   div(class="input-field")
                       input(id="respuesta" type='text' name='respuesta')
                       label(for="respuesta" style="font-size:1rem") Respuesta
+
+                  .input-field.col.s12
+                    select(id="cuenta" name='cuenta')
+                      option(value='', disabled='', selected='') Tipo de cuenta
+                      option(value='normal') Normal
+                      option(value='musica') Musica 
                   br
                   input(type='submit' value='Registrar')
     
-    .carousel.carousel-slider.center(style='height: 400px;')
+    .carousel.carousel-slider.center(style='height:33rem;')
       .carousel-item
         img(src="/images/evolve.jpg" style="width=100%" height="100%")
       .carousel-item
@@ -159,11 +182,11 @@ block content
           li.waves-effect
             a(href='#!' onClick='mostrar1()') 2
           li.waves-effect
-            a(href='#!') 3
+            a(href='#!' onClick='mostrar2()') 3
           li.waves-effect
-            a(href='#!') 4
+            a(href='#!' onClick='mostrar3()') 4
           li.waves-effect
-            a(href='#!') 5
+            a(href='#!' onClick='mostrar4()') 5
           li.waves-effect
             a(href='#!')
               i.material-icons chevron_right

@@ -14,15 +14,15 @@ block content2
                         input(class="file-path validate" type="text")
             div(class="input-field col s6")
                 i(class="material-icons prefix") person
-                input(id="icon_name" value="Javier Ernesto Mejía Arévalo" disabled type="text" class="validate enable")
+                input(id="icon_name" value=JSON.parse(session.user).nombre disabled type="text" class="validate enable" name="name")
                 label(for="icon_name") Nombre
             div(class="input-field col s6")
                 i(class="material-icons prefix") email
-                input(id="icon_telephone" value="00076017@uca.edu.sv" disabled  type="email" class="validate enable")
+                input(id="icon_telephone" value=JSON.parse(session.user).email disabled  type="email" class="validate enable" name="email")
                 label(for="icon_telephone") E-mail
             div(class="input-field col s6")
                 i(class="material-icons prefix") portrait
-                input(id="icon_mote" value="NeoCat" disabled  type="text" class="validate enable")
+                input(id="icon_mote" value=JSON.parse(session.user).username disabled  type="text" class="validate enable" name="username")
                 label(for="icon_mote") Mote
             div(class="col s6")
                 a(class="waves-effect waves-light btn" onClick="Enable();")
