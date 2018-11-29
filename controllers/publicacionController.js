@@ -45,4 +45,20 @@ controller.getAll = function (req, res) {
     // Enviarlos como respuesta en JSON
 };
 
+controller.getAll1 = function (req, res) {
+    // Obtener todos los post de la base datos
+    console.log(req.params.username);
+    publicacionModel.findOne({autor: req.params.username},function(err, posts){
+        if (err) {
+            console.log("dese dijo algo bueno por primera ves, que mal que dio error");
+            res.status(500);
+            res.json({code:500, err});
+            
+        } else {
+            //console.log(posts);
+            res.json({ ok:true , posts});
+        }
+    });
+    // Enviarlos como respuesta en JSON
+};
 module.exports = controller;
