@@ -13,7 +13,7 @@ controller.insert = function(req,res){
     let data = {
         titulo: req.body.titulo,
         imagenExtension: extension,
-        usuario:JSON.parse(session.user).id,
+        usuario:req.body.usuario,
         galeria: []
     };
     //Se seleccionan todas las canciones
