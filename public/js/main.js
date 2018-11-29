@@ -80,9 +80,9 @@ function mostrar0() {
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                                     <li class="active"><a href="#!">1</a></li>
                                     <li class="waves-effect"><a href="#!" onClick="mostrar1()">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar2()">3</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar3()">4</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar4()">5</a></li>
                                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                                 </ul>`;
             let cont = 1;
@@ -136,9 +136,9 @@ function mostrar1() {
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                                     <li class="waves-effect"><a href="#!" onClick='mostrar0()'>1</a></li>
                                     <li class="active"><a href="#!">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar2()">3</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar3()">4</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar4()">5</a></li>
                                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                                 </ul>`;
             let cont = 1;
