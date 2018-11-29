@@ -1,3 +1,5 @@
+
+
 function guardar() {
     let data = {
         nombre: document.getElementById("nombre").value,
@@ -8,11 +10,7 @@ function guardar() {
     let tbody = document.getElementsByClassName("posts")[0];
     let tr = document.createElement("tr");
     tr.className = "cancion";
-<<<<<<< HEAD
-    tr.id="tr";
-=======
     tr.id = "tr";
->>>>>>> 56513c0a8fcf713f6093913e19fb538f12aee4e2
     tr.innerHTML = `<td>
                         <input id="nombre" name="nombre" value="${data.nombre}" type="text"></td>
                     <td> 
@@ -25,10 +23,31 @@ function guardar() {
 window.onload = () => {
     app.init();
 }
+
 let app = {
     init: function () {
         this.mostrarForos();
-        //this.foroUser();
+        this.foroUser();
+        this.mostrarPlaylist();
+        this.playlist();
+    },
+
+    mostrarPlaylist: function(){
+        fetch('/playlist',{
+            method: "GET"
+        }).then(res => res.json())
+            .then(response=>{
+                console.log(response);
+            })
+    },
+
+    playlist: function(){
+        fetch('/profile/Playlist',{
+            method: "GET"
+        }).then(res => res.json())
+            .then(response =>{
+                console.log(response);
+            })
     },
 
     foroUser: function(){
@@ -47,11 +66,6 @@ let app = {
             .then(response => {
                 var respo = [];
                 let cont = 1;
-<<<<<<< HEAD
-                //console.log(response);
-                //let long = response.posts.length;
-=======
->>>>>>> 56513c0a8fcf713f6093913e19fb538f12aee4e2
                 for (let i = 0; i < 5; i++) {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';

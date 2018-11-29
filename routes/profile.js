@@ -21,14 +21,13 @@ router.get('/Foros', function(req, res, next) {
   res.render('profileForos');
 });
 
-router.get('/Foros/:username',playlistControler.show);
 router.get('/Foros/:username',publicacionController.getAll1);
 
 router.get('/Playlist', function(req, res, next) {
   res.render('profilePlaylist');
 });
 
-router.get('/playlist',)
+router.get('/Playlist/:username',playlistControler.showOnlyUserPlaylist);
 
 router.post('/', UserController.update);
 
