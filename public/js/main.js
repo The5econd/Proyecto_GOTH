@@ -20,11 +20,14 @@ function guardar() {
     tbody.appendChild(tr)
 };
 
+
+
 window.onload = () => {
     app.init();
 }
 
 let app = {
+
     init: function () {
         this.mostrarForos();
         this.foroUser();
@@ -49,13 +52,24 @@ let app = {
                 console.log(response);
             })
     },
-
-    foroUser: function(){
-        fetch('/profile/Foros', {
+    global: function () {
+        var globall = document.getElementById('global').value;
+        console.log(globall);
+    },
+    foroUser: function () {
+        fetch('/api/post', {
             method: "GET"
         }).then(res => res.json())
-            .then(response => {
-                console.log(response);
+            .then(alv => {
+                console.log(alv);
+                let array = [];
+                let len = alv.posts.length;
+                console.log(len);
+                for (let i = 0; i < len; i++) {
+                    let aut = alv.posts[i].autor;
+                    array.push(aut);
+                }
+                console.log(array);
             })
     },
 
@@ -70,7 +84,7 @@ let app = {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';
                     let hash = '#';
-                    console.log(response.posts);
+                    //console.log(response.posts);
                     let data = {
                         tit: (response.posts[i]).titulo,
                         cuer: (response.posts[i]).texto,
@@ -115,9 +129,9 @@ function mostrar0() {
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                                     <li class="active"><a href="#!">1</a></li>
                                     <li class="waves-effect"><a href="#!" onClick="mostrar1()">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar2()">3</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar3()">4</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar4()">5</a></li>
                                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                                 </ul>`;
             let cont = 1;
@@ -171,9 +185,9 @@ function mostrar1() {
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                                     <li class="waves-effect"><a href="#!" onClick='mostrar0()'>1</a></li>
                                     <li class="active"><a href="#!">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick='mostrar2()'>3</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick='mostrar3()'>4</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick='mostrar4()'>5</a></li>
                                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                                 </ul>`;
             let cont = 1;
@@ -281,8 +295,8 @@ function mostrar3() {
                                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                                     <li class="waves-effect"><a href="#!" onClick="mostrar0()">1</a></li>
                                     <li class="waves-effect"><a href="#!" onClick="mostrar1()">2</a></li>
-                                    <li class="waves-effect"><a href="#!" onClick="mostrar2()">3</a></li>
-                                    <li class="active"><a href="#!">4</a></li>
+                                    <li class="active"><a href="#!>3</a></li>
+                                    <li class="waves-effect"><a href="#!" onClick="mostrar3()>4</a></li>
                                     <li class="waves-effect"><a href="#!" onClick="mostrar4()">5</a></li>
                                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                                 </ul>`;
