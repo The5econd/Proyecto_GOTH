@@ -9,9 +9,9 @@ function guardar() {
     let tr = document.createElement("tr");
     tr.className = "cancion";
     tr.id="tr";
-    tr.innerHTML = `<td id="nombre" name="nombre">${data.nombre}</td>
-                        <td id="artista" name="artista">${data.Artista}</td>
-                        <td id="album" name="album">${data.Album}</td>`;
+    tr.innerHTML = `<td>${data.nombre}</td>
+                        <td>${data.Artista}</td>
+                        <td>${data.Album}</td>`;
     tbody.appendChild(tr)
 };
 

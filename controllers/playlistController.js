@@ -20,6 +20,12 @@ controller.insert = function(req,res){
     console.log(req.body.nombre);
     console.log(req.body.album);
     console.log(req.body.artista);
+    var cancion = {
+        nombre: req.body.nombre,
+        artista: req.body.artista,
+        album: req.body.album
+    };
+    galeria.push(cancion);
     //Se crea el modelo poneindo como datos la data
     var newPlaylist = playlistModel(data);
     //Se guarda
