@@ -48,5 +48,8 @@ controller.insert = function(req,res){
     });
 };
 
+controller.show = function(req,res){
+    
+}
 
 module.exports = controller;
