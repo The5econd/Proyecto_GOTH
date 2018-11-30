@@ -35,7 +35,7 @@ let app = {
             method: "GET"
         }).then(res => res.json())
             .then(respond => {
-                console.log(response);
+                //console.log(respond);
                 let array = [];
                 let len = respond.playlist.length;
                 for (let i = 0; i < len; i++) {
