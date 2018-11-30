@@ -64,18 +64,17 @@ controller.getAll = function (req, res) {
     // Enviarlos como respuesta en JSON
 };
 
-controller.showOnlyUserPlaylist = function(req,res){
-    // Obtener todos los post de la base datos
-    playlistModel.find({usuario: req.params.username},function(err, playlist){
+controller.delete = function(req,res){
+    // intentar eliminar
+    playlistModel.findByIdAndRemove(req.params.id, function(err, eleminado){
         if (err) {
             res.status(500);
-            res.json({code:500, err}); 
+            res.json({code:500, err});
         } else {
-            //console.log(posts);
-            res.json({ ok:true , playlist});
+            res.json({ok: true, eleminado});
         }
     });
-    // Enviarlos como respuesta en JSON
+    // noitifcar resultado 
 }
 
 module.exports = controller;

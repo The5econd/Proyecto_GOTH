@@ -25,22 +25,6 @@ block content2
                                     label(for="password2") New password
                         div(class="modal-footer")
                             button(type="submit" class="modal-close waves-effect waves-green btn-flat" formmethod="post" formaction="/profile/seguridad/cambiarPassword") Aceptar 
-            div(class="col s12")
-                h3 Olvido la contraseña
-                a(class="waves-effect waves-light btn modal-trigger" data-target="modal2")
-                    i(class="material-icons left") create
-                    span Recuperar
-                div(id="modal2" class="modal")
-                    form(action="/profile/seguridad/cambiarPregunta", method="post")
-                    div(class="modal-content")
-                        div(class="row")
-                            div(class="input-field col s12")
-                                h4 Email
-                            div(class="input-field col s12")
-                                input(id="email" type="email" class="validate")
-                                label(for="email") email
-                    div(class="modal-footer")
-                        button(type="sumbit" class="modal-close waves-effect waves-green btn-flat") Enviar
             div(class = "col s12")
                 h3 Pregunta secreta
             div(class = "input-field col s6")
@@ -56,24 +40,26 @@ block content2
                     i(class="material-icons left") create
                     span Cambiar respuesta
                 div(id="modal3" class="modal")
-                    div(class="modal-content")
-                        div(class="row")
-                            div(class="input-field col s12")
-                                h4 Nueva pregunta
-                            div(class="input-field col s12")
-                                select
-                                    option(value="" disabled selected) Elige una opcion
-                                    option(value="1") ¿Cual es tu animal favorito?
-                                    option(value="2") ¿Cual es el nombre de tu primera mascota?
-                                    option(value="3") ¿AHHHHH?
-                                label Pregunta
-                            div(class="input-field col s12")
-                                h4 Nueva respuesta
-                            div(class="input-field col s12")
-                                input(id="respuesta" type="text" class="validate")
-                                label(for="respuesta") Respuesta
-                    div(class="modal-footer")
-                        a(href="#!" class="modal-close waves-effect waves-green btn-flat") Cambiar
+                    form(action="/profile/seguridad/cambioPregunta", method="post")
+                        div(class="modal-content")
+                            div(class="row")
+                                div(class="input-field col s12")
+                                    h4 Nueva pregunta
+                                div(class="input-field col s12")
+                                    select
+                                        option(value="" disabled selected) Elige una opcion
+                                        option(value="1") ¿Cual es tu animal favorito?
+                                        option(value="2") ¿Cual es el nombre de tu primera mascota?
+                                        option(value="3") ¿AHHHHH?
+                                    label Pregunta
+                                div(class="input-field col s12")
+                                    h4 Nueva respuesta
+                                div(class="input-field col s12")
+                                    input(id="respuesta" type="text" class="validate")
+                                    label(for="respuesta") Respuesta
+                            button(class="btn waves-effect waves-light" type="submit" name="action")
+                                span Cambiar
+                                i(class="material-icons right") send
             div(class = "col s12")
                 h3 Eliminar cuenta
                 a(class="waves-effect waves-light btn modal-trigger" data-target="modal4")

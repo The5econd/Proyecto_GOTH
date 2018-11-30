@@ -31,8 +31,6 @@ router.get('/Playlist', function(req, res, next) {
   res.render('profilePlaylist');
 });
 
-//Get only the users playlist
-router.get('/Playlist/:username',playlistControler.showOnlyUserPlaylist);
 
 router.post('/', UserController.update);
 

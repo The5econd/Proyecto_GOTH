@@ -24,17 +24,76 @@ window.onload = () => {
 let app = {
 
     init: function () {
+        this.playlist();
         this.mostrarForos();
         this.foroUser();
     },
 
+    playlist: function(){
+        fetch('/api/play',{
+            method: "GET"
+        }).then(res => res.json())
+            .then(respond => {
+                let array = [];
+                let len = respond.playlist.length;
+                for (let i = 0; i < len; i++) {
+                    let aut = respond.playlist[i].usuario;
+                    array.push(aut);
+                }
+                var glob = document.getElementById("global12").innerText;
+                var contPlaylist = 0;
+                array.forEach(element => {
+                    contPlaylist++;
+                });
+                for(let i = 0; i < contPlaylist; i++){
+                    if(glob == respond.playlist[i].usuario){
+                        let data = {
+                            id: (respond.playlist[i])._id,
+                            titulo: (respond.playlist[i]).titulo,
+                            extension: (respond.playlist[i]).imagenExtension,
+                            usuario: respond.playlist[i].usuario
+                        };
+                        let divP = document.getElementById('playlist-U');
+                        let div = document.createElement("div");
+                        div.innerHTML = `<div class="col s6">
+                                            <div class="card">
+                                                <div class="card-image">
+                                                    <img src="/images/${data.extension}" alt="imagenPlaylist">
+                                                    <h5>${data.titulo}</h5>
+                                                    <p>Autor: ${data.usuario}</p>
+                                                </div>
+                                                <div class="card-action">
+                                                    <a href="#" class="delete">Eliminar</a>
+                                                </div>
+                                            </div>
+                                        </div>`;
+                        div.getElementsByClassName("delete")[0].addEventListener("click", (event) => {
+                            this.deletePlaylist(event, data, div, divP);
+                        });
+                        divP.appendChild(div);
+                    }
+                }
+            })
+    },
+    deletePlaylist: (event, data, div, divP) => {
+        event.preventDefault();
+        console.log(data.id);
+        fetch('/api/play/' + data.id, {
+                method: 'DELETE'
+            }).then(res => res.json())
+            .then(res => {
+                if (res.ok) {
+                    divP.removeChild(div);
+                }
+            })
+    },
+
     mostrarPlaylist: function () {
-        fetch('/api/play'+JSON.parse(session.user).username, {
+        fetch('/api/play', {
             method: "GET"
         }).then(res => res.json())
             .then(response => {
                 console.log(response);
-                console.log('hola')
             })
     },
 
