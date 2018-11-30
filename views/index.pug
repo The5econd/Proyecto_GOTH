@@ -126,44 +126,34 @@ block content
     block contenido
       main
         nav
-          .nav-wrapper.teal.darken-1(class='#00897b')
+          .nav-wrapper(style = "background-color: #212129")
             a.navbar_color(style='margin-left: 1em; font-size: 1.5em')
               i.fas.fa-crow
               | Goth music
             ul#nav-mobile.right.hide-on-med-and-down
-              li.input-field
-                div
-                  form
-                    div
-                      input#search(type='search', placeholder='Search..', required='')
-                      label.label-icon(for='search')
-                        i.material-icons
-              li
-                a.navbar_color(href='#')
-                  i.fas.fa-globe-americas
-              li
-                a(class ="navbar_color" onClick="mostrar0()")
-                  i.fab.fa-forumbee
-              li
-                a.navbar_color(href='')
-                  i.fas.fa-music
               li
                 a.navbar_color(href='users/logout') Log out
-      ul#slide-out.sidenav.sidenav-fixed.teal.lighten-5(class='#e0f2f1', style='margin-top: 66px; height: 100%;')
+      ul#slide-out.sidenav.sidenav-fixed( style='margin-top: 66px; height: 100%; background-color: 	#212129')
         .perfill
-          div(style='border-right: solid 1px #00897b; padding-right: 1.5em;')
+          div(style='border-right: solid 1px white; padding-right: 1.5em;')
             img.circle(src=JSON.parse(session.user).imagen, alt='/images/pf.png', style='height: 90px; width: 90px')
           div(style='display: flex; flex-direction:column; flex-wrap:wrap')
             div
-              p(style='margin: 0.43em; color: #004d40; font-size: 1.5em') #{JSON.parse(session.user).username}
+              p(style='margin: 0.43em; color: white; font-size: 1.5em') #{JSON.parse(session.user).username}
             div
-              p(style='margin: 1em; color: #004d40; font-size: 0.7em') #{JSON.parse(session.user).email}
+              p(style='margin: 1em; color: white; font-size: 0.7em') #{JSON.parse(session.user).email}
         li
-          a(href='/playlist', style='border-bottom: solid 1px #00897b; border-top: solid 1px #00897b') Playlists
+          a(href='/playlist', style='border-bottom: solid 1px white; color: white; border-top: solid 1px white')
+            i.fas.fa-music(style = "margin: 0; color: white")
+            span Create playlists
         li
-          a(href='/foro', style='border-bottom: solid 1px #00897b') Forums
+          a(href='/foro', style='border-bottom: solid 1px white; color: white')
+            i.fab.fa-forumbee(style = "margin: 0; color: white")
+            span Create forums
         li
-          a(href='/profile') Configuracion
+          a(href='/profile' style="color: white") 
+            i.fas.fa-cog(style = "margin: 0; color: white")
+            span Settings
       .cards
         #div123.col.s12.m7
           

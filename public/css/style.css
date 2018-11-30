@@ -30,6 +30,7 @@
   display: flex;
   justify-content: space-between;
 }
-.navbar_color{
-  color:  #004d40;
+
+body{
+  background-color: #212129;
 }

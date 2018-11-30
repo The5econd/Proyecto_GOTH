@@ -103,7 +103,7 @@ let app = {
                     };
                     let tbody = document.getElementById("div123");
                     let div = document.createElement("div");
-                    div.innerHTML = `<div class="card teal lighten-5 #e0f2f1">
+                    div.innerHTML = `<div class="card" style = "background-color: #40445a">
                                         <div class="card-content">
                                             <a href = "${data.img}"></a>
                                             <h4>${data.tit}</h4>
@@ -194,7 +194,7 @@ let app = {
                     let div = document.createElement("div");
                     div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                        <div class="card-panel #80cbc4 teal lighten-3">
+                                        <div class="card-panel" style = "background-color: #40445a">
                                             <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                                 ${data.tit}</a>
                                             <a class="linkss waves effect waves-light">${data.aut}</a>
@@ -247,7 +247,7 @@ function mostrar0() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <div class="card-panel" style = "background-color: #40445a">
                                     <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                         ${data.tit}</a>
                                     <a class="linkss waves effect waves-light">${data.aut}</a>
@@ -284,11 +284,7 @@ function mostrar1() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
-<<<<<<< HEAD
             for (let i = 3; i < 6; i++) {
-=======
-            for (let i = 15; i < 20; i++) {
->>>>>>> ec3322c34c9f0961e686580d6f8259bc4da1af5d
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
 
@@ -303,7 +299,7 @@ function mostrar1() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <div class="card-panel" style = "background-color: #40445a">
                                     <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                         ${data.tit}</a>
                                     <a class="linkss waves effect waves-light">${data.aut}</a>
@@ -354,7 +350,7 @@ function mostrar2() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <div class="card-panel" style = "background-color: #40445a">
                                     <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                         ${data.tit}</a>
                                     <a class="linkss waves effect waves-light">${data.aut}</a>
@@ -404,7 +400,7 @@ function mostrar3() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <div class="card-panel" style = "background-color: #40445a">
                                     <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                         ${data.tit}</a>
                                     <a class="linkss waves effect waves-light">${data.aut}</a>
@@ -454,7 +450,7 @@ function mostrar3() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <div class="card-panel" style = "background-color: #40445a">
                                     <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                         ${data.tit}</a>
                                     <a class="linkss waves effect waves-light">${data.aut}</a>
@@ -504,7 +500,7 @@ function mostrar4() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <div class="card-panel" style = "background-color: #40445a">
                                     <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                         ${data.tit}</a>
                                     <a class="linkss waves effect waves-light">${data.aut}</a>
