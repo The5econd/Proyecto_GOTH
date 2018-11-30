@@ -2,6 +2,7 @@ const mongoose = require('mongoose'); //libreria para el manejo a la conexion de
 const User = require("../models/users"); //modelo usuarios.
 const AuthController = {}; // objeto que tendra la logica de nuestra web
 const bcrypt = require('bcrypt'); //libreria para encriptar
+const fs = require('fs.extra');
 
 
 AuthController.login = function (req, res, next) {
@@ -27,7 +28,8 @@ AuthController.store = async function (req, res) {
         nombre:req.body.name,
         apellido:req.body.apellido,
         sexo:req.body.sexo,
-        cuenta: req.body.cuenta
+        cuenta: req.body.cuenta,
+        imagen: '/images/pf.png'
     }
     
     /*alamcenando el usuario*/
@@ -43,13 +45,14 @@ AuthController.store = async function (req, res) {
                 password: user.password,
                 username: user.username,
                 seguridad: {
-                    pregunta: req.body.pregunta,
-                    respuesta: req.body.respuesta
+                    pregunta: user.seguridad.pregunta,
+                    respuesta: user.seguridad.respuesta
                 },
-                nombre:req.body.name,
-                apellido:req.body.apellido,
-                sexo:req.body.sexo,
-                cuenta: req.body.cuenta
+                nombre:user.nombre,
+                apellido:user.apellido,
+                sexo:user.sexo,
+                cuenta: user.cuenta,
+                imagen: user.imagen
             }
             //console.log(data.seguridad.pregunta);
             //hash es el mé que nos permite encriptar el password
@@ -87,18 +90,19 @@ AuthController.signin = function (req, res,next) {
             //return res.send({ err: error, email: user.email });
         }
         else {
-                data.userId= user._id.toString(),
-                data.email= user.email,
-                data.password=user.password,
-                data.username=user.username,
-                data.seguridad= {
-                    pregunta: req.body.pregunta,
-                    respuesta: req.body.respuesta
-                },
-                data.nombre=req.body.name,
-                data.apellido=req.body.apellido,
-                data.sexo=req.body.sexo
-                data.cuenta= req.body.cuenta
+            data.userId= user._id.toString(),
+            data.email= user.email,
+            data.password=user.password,
+            data.username=user.username,
+            data.seguridad= {
+                pregunta: user.pregunta,
+                respuesta: user.respuesta
+            },
+            data.nombre=user.name,
+            data.apellido=user.apellido,
+            data.sexo=user.sexo,
+            data.cuenta= user.cuenta,
+            data.imagen = user.imagen
 
        
             
@@ -134,22 +138,53 @@ AuthController.logout = function (req, res, next) {
 AuthController.update = function (req, res) {
     var sess = req.session;
     var sessUser = JSON.parse(sess.user);
+    let update = {};
 
-    let update = {
-        nombre: req.body.name,
-        email: req.body.email,
-        username: req.body.username
+    if(req.files.imagen.name == ""){
+        var extension = sessUser.imagen;
+    }
+
+    else{
+        extension = "/images/" + req.files.imagen.name;
+    }
+    
+    console.log(extension);
+
+    if(!req.body.name && !req.body.email && !req.body.username){
+        var nombre = sessUser.name;
+        var email = sessUser.email;
+        var username = sessUser.username;
+    }
+
+    else{
+        nombre = req.body.name;
+        email = req.body.email;
+        username = req.body.username;
+    }
+
+    update = {
+        nombre: nombre,
+        email: email,
+        username: username,
+        imagen: extension
     };
+
 
     sessUser.nombre = update.nombre;
     sessUser.email = update.email;
     sessUser.username = update.username;
+    sessUser.imagen = update.imagen;
 
     User.updateOne({"email": JSON.parse(req.session.user).email.toString()}, update, function(err){
         if(err){
             res.status(500);
             res.json({code:500, err});
         } else {
+
+            if(extension != ""){
+                fs.copy(req.files.imagen.path, "public/" + extension);
+            }
+
             req.session.user = JSON.stringify(sessUser);
             req.session.save(function(err){
                 if(err){

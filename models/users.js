@@ -15,10 +15,8 @@ const UserSchema = new Schema({
     nombre:{type:String, required:true},
     apellido:{type:String, required:true},
     sexo:{type:String, required:true},
-    cuenta:{type:String, required:true}
-    
-    
-    
+    cuenta:{type:String, required:true},
+    imagen:{type: String}
 });
 
 UserSchema.statics.authenticate = function (email, password, callback) {

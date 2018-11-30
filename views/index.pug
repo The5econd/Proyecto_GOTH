@@ -143,7 +143,7 @@ block content
       ul#slide-out.sidenav.sidenav-fixed.teal.lighten-5(class='#e0f2f1', style='margin-top: 66px; height: 100%;')
         .perfill
           div(style='border-right: solid 1px #00897b; padding-right: 1.5em;')
-            img.circle(src='/images/pf.png', alt='', style='height: 90px; width: 90px')
+            img.circle(src=JSON.parse(session.user).imagen, alt='/images/pf.png', style='height: 90px; width: 90px')
           div(style='display: flex; flex-direction:column; flex-wrap:wrap')
             div
               p#global(style='margin: 0.43em; color: #004d40; font-size: 1.5em' ) #{JSON.parse(session.user).username}
