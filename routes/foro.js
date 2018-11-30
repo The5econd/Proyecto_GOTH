@@ -9,4 +9,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/publicar',AuthController.insert);
 
+
+
 module.exports = router;

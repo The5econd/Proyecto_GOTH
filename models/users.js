@@ -50,6 +50,7 @@ UserSchema.pre('save', function (next) {
         user.password = hash;
         next();
         })
+    
    });
 let User = mongoose.model('users', UserSchema);
 

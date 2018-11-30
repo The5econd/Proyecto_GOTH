@@ -36,7 +36,7 @@ AuthController.store = async function (req, res) {
     await User.create(user, (error, user) => { 
         if (error) // si se produce algun error
             //Devolvemos una vista con los mensajes de error
-            return res.render('index', { err: error, email: user.email });          
+            return res.render('error2', { err: error, email: user.email });          
         else {
             //Almacenamos los datos de la consulta en el objeto data
             let data = {
@@ -85,7 +85,7 @@ AuthController.signin = function (req, res,next) {
     //user autentication es el metodo que nos permitira ingresar al sistema
     User.authenticate(req.body.email, req.body.password, (error, user) => {
         if (error || !user) {
-            return res.render('index', { err: error, email: req.body.email });
+            return res.render('error2', { err: error, email: req.body.email });
             //return res.send("Usuario ya existente");
             //return res.send({ err: error, email: user.email });
         }
@@ -118,6 +118,8 @@ AuthController.signin = function (req, res,next) {
                 return res.redirect('/users/profile');
             });
 
+            
+
         }
     });
 };
@@ -134,6 +136,12 @@ AuthController.logout = function (req, res, next) {
         });
     }
 }
+
+
+AuthController.volver = function (req, res) {
+    req.render('index');
+}
+module.exports = AuthController;
 
 AuthController.update = function (req, res) {
     var sess = req.session;
@@ -239,3 +247,4 @@ AuthController.changePassword = function(req, res) {
 };
 
 module.exports = AuthController;
+

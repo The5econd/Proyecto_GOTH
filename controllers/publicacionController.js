@@ -35,7 +35,7 @@ controller.getAll = function (req, res) {
     // Obtener todos los post de la base datos
     publicacionModel.find({},function(err, posts){
         if (err) {
-            console.log("dese dijo algo bueno por primera ves, que mal que dio error");
+            //console.log("dese dijo algo bueno por primera ves, que mal que dio error");
             res.status(500);
             res.json({code:500, err});
             
@@ -46,6 +46,7 @@ controller.getAll = function (req, res) {
     });
     // Enviarlos como respuesta en JSON
 };
+
 
 controller.getAll1 = function (req, res) {
     // Obtener todos los post de la base datos

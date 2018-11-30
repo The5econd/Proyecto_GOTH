@@ -176,11 +176,13 @@ let app = {
             method: "GET"
         }).then(res => res.json())
             .then(response => {
-                var respo = [];
+                //var respo = [];
+                // respo.add(response[i])
                 let cont = 1;
                 for (let i = 0; i < 3; i++) {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';
+
                     let hash = '#';
                     //console.log(response.posts);
                     let data = {
@@ -282,7 +284,11 @@ function mostrar1() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
+<<<<<<< HEAD
             for (let i = 3; i < 6; i++) {
+=======
+            for (let i = 15; i < 20; i++) {
+>>>>>>> ec3322c34c9f0961e686580d6f8259bc4da1af5d
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
 
