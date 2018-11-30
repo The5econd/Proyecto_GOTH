@@ -20,13 +20,24 @@ function guardar() {
 
 window.onload = () => {
     app.init();
-}
+};
 let app = {
 
     init: function () {
         this.mostrarForos();
         this.foroUser();
     },
+
+    mostrarPlaylist: function () {
+        fetch('/api/play'+JSON.parse(session.user).username, {
+            method: "GET"
+        }).then(res => res.json())
+            .then(response => {
+                console.log(response);
+                console.log('hola')
+            })
+    },
+
     foroUser: function () {
         fetch('/api/post', {
             method: "GET"

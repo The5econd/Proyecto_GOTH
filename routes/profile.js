@@ -17,18 +17,22 @@ router.get('/Seguridad', function(req, res, next) {
   res.render('profileSeguridad');
 });
 
+router.post('/seguridad/cambiarPassword', UserController.changePassword);
+
+//router.post('/seguridad/cambiarPregunta',controlador);
+
 router.get('/Foros', function(req, res, next) {
   res.render('profileForos');
 });
 
-router.get('/Foros/:username',playlistControler.show);
 router.get('/Foros/:username',publicacionController.getAll1);
 
 router.get('/Playlist', function(req, res, next) {
   res.render('profilePlaylist');
 });
 
-router.get('/playlist',)
+//Get only the users playlist
+router.get('/Playlist/:username',playlistControler.showOnlyUserPlaylist);
 
 router.post('/', UserController.update);
 
