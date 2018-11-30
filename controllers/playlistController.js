@@ -35,10 +35,7 @@ controller.insert = function(req,res){
             if(req.files.archivo.name != ""){
                 fs.copy(req.files.archivo.path, "public/images/"+extension);
             }
-            res.json({
-                ok: true,
-                playlist: newPlaylist
-            });
+            res.redirect('/');
         } else {
             res.status(500);
             res.json({

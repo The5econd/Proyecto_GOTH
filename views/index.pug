@@ -3,10 +3,10 @@ block content
   
   if !session.user
     nav
-      div(class="nav-wrapper #455a64 blue-grey darken-2")
-        a(href="#" class="brand-logo")
+      .nav-wrapper(style = "background-color: #212129")
+        a.navbar_color(style='margin-left: 1em; font-size: 1.5em')
           i.fas.fa-crow
-              | Goth music
+          | Goth music
         ul(id="nav-mobile" class="right hide-on-med-and-down")
           li
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal1") signin
@@ -90,7 +90,7 @@ block content
         li.indicator-item
         li.indicator-item
         li.indicator-item
-    footer(class="page-footer #455a64 blue-grey darken-2")
+    footer(class="page-footer" style = "background-color: #212129")
       .container
         .row
           .col.l6.s12(style="font-size=10px")
@@ -155,7 +155,7 @@ block content
             i.fas.fa-cog(style = "margin: 0; color: white")
             span Settings
       .cards
-        #div123.col.s12.m7
+        #div123.col.s12.m7(style = "position: relative")
           
       section#sec1(action="/api/post", method="GET")
         ul.pagination(style='position: absolute; left: 25%; bottom: 0')

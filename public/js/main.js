@@ -99,25 +99,41 @@ let app = {
                     let data = {
                         tit: (response.playlist[i]).titulo,
                         img: (response.playlist[i]).imagenExtension,
-                        usr: (response.playlist[i]).usuario
+                        usr: (response.playlist[i]).usuario,
+                        galeria: (response.playlist[i]).galeria
                     };
                     let tbody = document.getElementById("div123");
-                    let div = document.createElement("div");
-                    div.innerHTML = `<div class="card" style = "background-color: #40445a">
-                                        <div class="card-content">
-                                            <a href = "${data.img}"></a>
-                                            <h4>${data.tit}</h4>
+                    let div2 = document.createElement("div");
+                    var cancion ="";
+                    for(let j = 0; j< data.galeria.length; j++){                      
+                        var cancion = "<tr>"+
+                                            "<td>"+data.galeria[j].nombre+"</td>"+
+                                            "<td>"+data.galeria[j].album+"</td>"+
+                                            "<td>"+data.galeria[j].artista+"</td>"+"</tr>"+cancion;
+                    }
+                    div = `<div class="card" style = "background-color: #40445a">
+                                        <div class="card-content cancion3" >
+                                            <img src = "images/${data.img}" style = "width: 100%">
+                                            <h5>${data.tit}</h5>
                                             <p>${data.usr}</p>
-                                        </div>
-                                    </div>`;
-                    tbody.appendChild(div);
+                                            <table>
+                                                <thead>
+                                                    <th>Nombre</th>
+                                                    <th>Album</th>
+                                                    <th>Artista</th>
+                                                </thead>
+                                                <tbody>
+                                                `;
+                    div += cancion+ "</tbody>"+"</table>"+"</div>"+"</div>"
+                    div2.innerHTML = div;
+                    tbody.appendChild(div2);
                 }
             })
     },
 
     foroUser: function () {
         fetch('/api/post', {
-            method: "GET"
+            method: "GETT"
         }).then(res => res.json())
             .then(respond => {
                 let array = [];

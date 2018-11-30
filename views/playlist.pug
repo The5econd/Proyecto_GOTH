@@ -12,7 +12,7 @@ block contentMain
                 input(id="Album" type="text" class="validate")
                 label(for="Album") Album
             div(class="col s10 offsite-s3")
-                a(class="btn waves-effect waves-light" type="button" onClick="guardar()")
+                a(class="waves-effect waves-light btn" type="button" onClick="guardar()")
                     i(class="material-icons right") create
                     span Agregar
         form(class="col s8 card" style="padding:2rem;" method="post" action="/Playlist/" enctype="multipart/form-data")
