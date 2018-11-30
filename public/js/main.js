@@ -25,12 +25,10 @@ let app = {
 
     init: function () {
         this.playlist();
+        this.mostrarForos();
+        this.foroUser();
     },
 
-    global: function () {
-        var globall = document.getElementById('global').value;
-        console.log(globall);
-    },
     playlist: function(){
         fetch('/api/play',{
             method: "GET"
