@@ -17,6 +17,10 @@ router.get('/Seguridad', function(req, res, next) {
   res.render('profileSeguridad');
 });
 
+//router.post('/seguridad/cambiarPassword',controlador);
+
+//router.post('/seguridad/cambiarPregunta',controlador);
+
 router.get('/Foros', function(req, res, next) {
   res.render('profileForos');
 });
