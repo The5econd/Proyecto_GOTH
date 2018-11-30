@@ -95,6 +95,23 @@ let app = {
         }).then(res => res.json())
             .then(response => {
                 console.log(response);
+                for (let i = 0; i < 3; i++) {
+                    let data = {
+                        tit: (response.playlist[i]).titulo,
+                        img: (response.playlist[i]).imagenExtension,
+                        usr: (response.playlist[i]).usuario
+                    };
+                    let tbody = document.getElementById("div123");
+                    let div = document.createElement("div");
+                    div.innerHTML = `<div class="card teal lighten-5 #e0f2f1">
+                                        <div class="card-content">
+                                            <a href = "${data.img}"></a>
+                                            <h4>${data.tit}</h4>
+                                            <p>${data.usr}</p>
+                                        </div>
+                                    </div>`;
+                    tbody.appendChild(div);
+                }
             })
     },
 
@@ -161,7 +178,7 @@ let app = {
             .then(response => {
                 var respo = [];
                 let cont = 1;
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < 3; i++) {
                     //respo.add(respones.posts[i]);
                     let idd = 'modal';
                     let hash = '#';
@@ -179,11 +196,7 @@ let app = {
                                             <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
                                                 ${data.tit}</a>
                                             <a class="linkss waves effect waves-light">${data.aut}</a>
-                                            <div id=${idd + cont} class="modal">
-                                                <div class="modal-content inner_div">
-                                                    <h4>${data.tit}</h4>
-                                                    <p>${data.cuer}</p>
-                                                </div>           
+                                            <p>${data.cuer}</p>       
                                             </div>
                                         </div>
                                     </div>
@@ -217,7 +230,7 @@ function mostrar0() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
 
@@ -232,17 +245,13 @@ function mostrar0() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                        <div class="card-panel #80cbc4 teal lighten-3">
-                                            <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
-                                                ${data.tit}</a>
-                                            <a class="linkss waves effect waves-light">${data.aut}</a>
-                                            <div id=${idd + cont} class="modal">
-                                                <div class="modal-content inner_div">
-                                                    <h4>${data.tit}</h4>
-                                                    <p>${data.cuer}</p>
-                                                </div>           
-                                            </div>
-                                        </div>
+                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
+                                        ${data.tit}</a>
+                                    <a class="linkss waves effect waves-light">${data.aut}</a>
+                                    <p>${data.cuer}</p>       
+                                    </div>
+                                </div>
                                     </div>
                                 </div>`;
                 cont = cont + 1;
@@ -273,7 +282,7 @@ function mostrar1() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
-            for (let i = 5; i < 9; i++) {
+            for (let i = 3; i < 6; i++) {
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
 
@@ -288,17 +297,13 @@ function mostrar1() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                        <div class="card-panel #80cbc4 teal lighten-3">
-                                            <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
-                                                ${data.tit}</a>
-                                            <a class="linkss waves effect waves-light">${data.aut}</a>
-                                            <div id=${idd + cont} class="modal">
-                                                <div class="modal-content inner_div">
-                                                    <h4>${data.tit}</h4>
-                                                    <p>${data.cuer}</p>
-                                                </div>           
-                                            </div>
-                                        </div>
+                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
+                                        ${data.tit}</a>
+                                    <a class="linkss waves effect waves-light">${data.aut}</a>
+                                    <p>${data.cuer}</p>       
+                                    </div>
+                                </div>
                                     </div>
                                 </div>`;
                 cont = cont + 1;
@@ -329,7 +334,7 @@ function mostrar2() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
-            for (let i = 10; i < 15; i++) {
+            for (let i = 6; i < 9; i++) {
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
                 let hash = '#';
@@ -343,17 +348,13 @@ function mostrar2() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                        <div class="card-panel #80cbc4 teal lighten-3">
-                                            <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
-                                                ${data.tit}</a>
-                                            <a class="linkss waves effect waves-light">${data.aut}</a>
-                                            <div id=${idd + cont} class="modal">
-                                                <div class="modal-content inner_div">
-                                                    <h4>${data.tit}</h4>
-                                                    <p>${data.cuer}</p>
-                                                </div>           
-                                            </div>
-                                        </div>
+                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
+                                        ${data.tit}</a>
+                                    <a class="linkss waves effect waves-light">${data.aut}</a>
+                                    <p>${data.cuer}</p>       
+                                    </div>
+                                </div>
                                     </div>
                                 </div>`;
                 cont = cont + 1;
@@ -383,7 +384,7 @@ function mostrar3() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
-            for (let i = 15; i < 20; i++) {
+            for (let i = 9; i < 12; i++) {
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
                 let hash = '#';
@@ -397,17 +398,13 @@ function mostrar3() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                        <div class="card-panel #80cbc4 teal lighten-3">
-                                            <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
-                                                ${data.tit}</a>
-                                            <a class="linkss waves effect waves-light">${data.aut}</a>
-                                            <div id=${idd + cont} class="modal">
-                                                <div class="modal-content inner_div">
-                                                    <h4>${data.tit}</h4>
-                                                    <p>${data.cuer}</p>
-                                                </div>           
-                                            </div>
-                                        </div>
+                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
+                                        ${data.tit}</a>
+                                    <a class="linkss waves effect waves-light">${data.aut}</a>
+                                    <p>${data.cuer}</p>       
+                                    </div>
+                                </div>
                                     </div>
                                 </div>`;
                 cont = cont + 1;
@@ -437,7 +434,7 @@ function mostrar3() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
-            for (let i = 20; i < 25; i++) {
+            for (let i = 12; i < 15; i++) {
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
                 let hash = '#';
@@ -451,17 +448,13 @@ function mostrar3() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                        <div class="card-panel #80cbc4 teal lighten-3">
-                                            <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
-                                                ${data.tit}</a>
-                                            <a class="linkss waves effect waves-light">${data.aut}</a>
-                                            <div id=${idd + cont} class="modal">
-                                                <div class="modal-content inner_div">
-                                                    <h4>${data.tit}</h4>
-                                                    <p>${data.cuer}</p>
-                                                </div>           
-                                            </div>
-                                        </div>
+                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
+                                        ${data.tit}</a>
+                                    <a class="linkss waves effect waves-light">${data.aut}</a>
+                                    <p>${data.cuer}</p>       
+                                    </div>
+                                </div>
                                     </div>
                                 </div>`;
                 cont = cont + 1;
@@ -491,7 +484,7 @@ function mostrar4() {
                                 </ul>`;
             let cont = 1;
             console.log(response.length);
-            for (let i = 25; i < 30; i++) {
+            for (let i = 15; i < 18; i++) {
                 //respo.add(respones.posts[i]);
                 let idd = 'modal';
                 let hash = '#';
@@ -505,17 +498,13 @@ function mostrar4() {
                 let div = document.createElement("div");
                 div.innerHTML = `<div class="sectionn">
                                     <div class="">
-                                        <div class="card-panel #80cbc4 teal lighten-3">
-                                            <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
-                                                ${data.tit}</a>
-                                            <a class="linkss waves effect waves-light">${data.aut}</a>
-                                            <div id=${idd + cont} class="modal">
-                                                <div class="modal-content inner_div">
-                                                    <h4>${data.tit}</h4>
-                                                    <p>${data.cuer}</p>
-                                                </div>           
-                                            </div>
-                                        </div>
+                                    <div class="card-panel #80cbc4 teal lighten-3">
+                                    <a class="linkss waves-effect waves-light btn modal-trigger" href="${hash + idd + cont}">
+                                        ${data.tit}</a>
+                                    <a class="linkss waves effect waves-light">${data.aut}</a>
+                                    <p>${data.cuer}</p>       
+                                    </div>
+                                </div>
                                     </div>
                                 </div>`;
                 cont = cont + 1;
