@@ -10,6 +10,4 @@ router.post('/', publicacionController.insert);
 //Get all
 router.get('/', publicacionController.getAll);
 
-router.get('/:username', publicacionController.get);
-
 module.exports = router; 

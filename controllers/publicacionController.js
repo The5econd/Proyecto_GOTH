@@ -47,11 +47,7 @@ controller.getAll = function (req, res) {
     // Enviarlos como respuesta en JSON
 };
 
-<<<<<<< HEAD
 
-
-
-=======
 controller.getAll1 = function (req, res) {
     // Obtener todos los post de la base datos
     console.log(req.params.username);
@@ -68,5 +64,4 @@ controller.getAll1 = function (req, res) {
     });
     // Enviarlos como respuesta en JSON
 };
->>>>>>> d0cc48c24cf4f57d0483887b74af895a58439afe
 module.exports = controller;
