@@ -127,8 +127,10 @@ let app = {
                         cont4++;
                     }
                 });
-                console.log(cont4+'cont4')
+                console.log(cont4+'cont4');
+                let cont6 = 1;
                 for(let i = 0; i < cont4; i++){
+                    let iddd = 'foros_';
                     let data = {
                         tit: (alv.posts[i]).titulo,
                         cuer: (alv.posts[i]).texto,
@@ -136,15 +138,17 @@ let app = {
                     };
                     let tbody = document.getElementById('profile-F');
                     let div = document.createElement("div");
-                    div.innerHTML = `<div class="col s6">
+                    div.innerHTML = `<div class="col s6" id=${iddd + cont6}>
                                         <div class="card ">
                                             <div class="card-content grey lighten-1">
                                                 <h5>${data.tit}</h5>
+                                                <p>${data.cuer}</>
                                             </div>
                                             <div class="card-action"><a href="#">Eliminar</a></div>
                                         </div>
                                     </div>`;
                     tbody.appendChild(div);
+                    cont6++;
                 }
             })
     },
