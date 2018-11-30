@@ -27,7 +27,6 @@ let app = {
         this.playlist();
     },
 
-
     global: function () {
         var globall = document.getElementById('global').value;
         console.log(globall);
@@ -37,21 +36,17 @@ let app = {
             method: "GET"
         }).then(res => res.json())
             .then(respond => {
-                console.log('respond');
-                console.log(respond);
                 let array = [];
                 let len = respond.playlist.length;
                 for (let i = 0; i < len; i++) {
                     let aut = respond.playlist[i].usuario;
                     array.push(aut);
                 }
-                console.log('Playlist');
                 var glob = document.getElementById("global12").innerText;
                 var contPlaylist = 0;
                 array.forEach(element => {
                     contPlaylist++;
                 });
-                console.log(contPlaylist);
                 for(let i = 0; i < contPlaylist; i++){
                     if(glob == respond.playlist[i].usuario){
                         let data = {
