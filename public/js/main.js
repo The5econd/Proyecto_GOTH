@@ -133,7 +133,7 @@ let app = {
 
     foroUser: function () {
         fetch('/api/post', {
-            method: "GETT"
+            method: "GET"
         }).then(res => res.json())
             .then(respond => {
                 let array = [];
