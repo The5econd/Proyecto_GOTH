@@ -29,8 +29,8 @@ let app = {
         this.foroUser();
     },
 
-    playlist: function(){
-        fetch('/api/play',{
+    playlist: function () {
+        fetch('/api/play', {
             method: "GET"
         }).then(res => res.json())
             .then(respond => {
@@ -45,8 +45,8 @@ let app = {
                 array.forEach(element => {
                     contPlaylist++;
                 });
-                for(let i = 0; i < contPlaylist; i++){
-                    if(glob == respond.playlist[i].usuario){
+                for (let i = 0; i < contPlaylist; i++) {
+                    if (glob == respond.playlist[i].usuario) {
                         let data = {
                             id: (respond.playlist[i])._id,
                             titulo: (respond.playlist[i]).titulo,
@@ -79,8 +79,8 @@ let app = {
         event.preventDefault();
         console.log(data.id);
         fetch('/api/play/' + data.id, {
-                method: 'DELETE'
-            }).then(res => res.json())
+            method: 'DELETE'
+        }).then(res => res.json())
             .then(res => {
                 if (res.ok) {
                     divP.removeChild(div);
@@ -101,52 +101,59 @@ let app = {
         fetch('/api/post', {
             method: "GET"
         }).then(res => res.json())
-            .then(alv => {
-                console.log(alv);
+            .then(respond => {
                 let array = [];
-                let len = alv.posts.length;
-                console.log(len);
+                let len = respond.posts.length;
                 for (let i = 0; i < len; i++) {
-                    let aut = alv.posts[i].autor;
+                    let aut = respond.posts[i].autor;
                     array.push(aut);
                 }
-                console.log(array);
                 var glob = document.getElementById("global12").innerText;
-                console.log(glob);
-                var cont4 = 0;
+                var contForos = 0;
                 array.forEach(element => {
-                    if(element == glob){
-                        console.log(element+'suesbello');
-                        cont4++;
-                    }
+                    contForos++;
                 });
-                console.log(cont4+'cont4');
-                let cont6 = 1;
-                for(let i = 0; i < cont4; i++){
-                    let iddd = 'foros_';
-                    let data = {
-                        tit: (alv.posts[i]).titulo,
-                        cuer: (alv.posts[i]).texto,
-                        aut: (alv.posts[i]).autor
-                    };
-                    let tbody = document.getElementById('profile-F');
-                    let div = document.createElement("div");
-                    div.innerHTML = `<div class="col s6" id=${iddd + cont6}>
-                                        <div class="card ">
-                                            <div class="card-content grey lighten-1">
-                                                <h5>${data.tit}</h5>
-                                                <p>${data.cuer}</>
+                for (let i = 0; i < contForos; i++) {
+                    if (glob == respond.posts[i].autor) {
+                        let data = {
+                            id: (respond.posts[i])._id,
+                            tit: (respond.posts[i]).titulo,
+                            cuer: (respond.posts[i]).texto,
+                            aut: (respond.posts[i]).autor
+                        };
+                        let tbody = document.getElementById('profile-F');
+                        let div = document.createElement("div");
+                        div.innerHTML = `<div class="col s6" >
+                                            <div class="card ">
+                                                <div class="card-content grey lighten-1">
+                                                    <h5>${data.tit}</h5>
+                                                    <p>${data.cuer}</>
+                                                </div>
+                                                <div class="card-action">
+                                                    <a href="#" class="delete">Eliminar</a>
+                                                </div>
                                             </div>
-                                            <div class="card-action"><a href="#">Eliminar</a></div>
-                                        </div>
-                                    </div>`;
-                    tbody.appendChild(div);
-                    cont6++;
+                                        </div>`;
+                        div.getElementsByClassName("delete")[0].addEventListener("click", (event) => {
+                            this.deleteForos(event, data, div, tbody);
+                        });
+                        tbody.appendChild(div);
+                    }
                 }
             })
     },
-
-    mostrar: function () {
+    deleteForos: (event, data, div, tbody) => {
+        event.preventDefault();
+        fetch('/api/post/' + data.id, {
+            method: 'DELETE'
+        }).then(res => res.json())
+            .then(res => {
+                if (res.ok) {
+                    tbody.removeChild(div);
+                }
+            })
+    },
+    mostrarForos: function () {
         fetch('/api/post', {
             method: "GET"
         }).then(res => res.json())
