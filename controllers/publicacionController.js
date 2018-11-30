@@ -23,8 +23,10 @@ controller.insert = function(req,res){
             res.json({
                 ok: true,
                 insertado
+                
             });
         }
+        
     });
 };
 
