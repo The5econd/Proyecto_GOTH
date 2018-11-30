@@ -23,7 +23,7 @@ controller.insert = function(req,res){
         cancion={
             nombre:req.body.nombre[x],
             album:req.body.album[x],
-            artista: req.body.album[x]
+            artista: req.body.artista[x]
         }
         data.galeria.push(cancion);
     }
