@@ -1,5 +1,3 @@
-
-
 function guardar() {
     let data = {
         nombre: document.getElementById("nombre").value,
@@ -24,38 +22,31 @@ function guardar() {
 
 window.onload = () => {
     app.init();
-}
-
+};
 let app = {
 
     init: function () {
         this.mostrarForos();
         this.foroUser();
         this.mostrarPlaylist();
-        this.playlist();
     },
 
-    mostrarPlaylist: function(){
-        fetch('/playlist',{
-            method: "GET"
-        }).then(res => res.json())
-            .then(response=>{
-                console.log(response);
-            })
-    },
 
-    playlist: function(){
-        fetch('/profile/Playlist',{
-            method: "GET"
-        }).then(res => res.json())
-            .then(response =>{
-                console.log(response);
-            })
-    },
     global: function () {
         var globall = document.getElementById('global').value;
         console.log(globall);
     },
+
+    mostrarPlaylist: function () {
+        fetch('/api/play'+JSON.parse(session.user).username, {
+            method: "GET"
+        }).then(res => res.json())
+            .then(response => {
+                console.log(response);
+                console.log('hola')
+            })
+    },
+
     foroUser: function () {
         fetch('/api/post', {
             method: "GET"

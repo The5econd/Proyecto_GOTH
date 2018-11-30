@@ -51,8 +51,9 @@ controller.insert = function(req,res){
 
 controller.getAll = function (req, res) {
     // Obtener todos los post de la base datos
-    publicacionModel.find({},function(err, playlist){
+    playlistModel.find({},function(err,playlist){
         if (err) {
+            console.log(err);
             res.status(500);
             res.json({code:500, err});  
         } else {
