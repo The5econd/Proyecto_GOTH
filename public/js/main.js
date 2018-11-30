@@ -27,6 +27,7 @@ let app = {
         this.playlist();
         this.mostrarForos();
         this.foroUser();
+        this.mostrarPlaylist();
     },
 
     playlist: function(){
