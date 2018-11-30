@@ -146,7 +146,7 @@ block content
             img.circle(src=JSON.parse(session.user).imagen, alt='/images/pf.png', style='height: 90px; width: 90px')
           div(style='display: flex; flex-direction:column; flex-wrap:wrap')
             div
-              p#username(style='margin: 0.43em; color: #004d40; font-size: 1.5em' ) #{JSON.parse(session.user).username}
+              p(style='margin: 0.43em; color: #004d40; font-size: 1.5em') #{JSON.parse(session.user).username}
             div
               p(style='margin: 1em; color: #004d40; font-size: 0.7em') #{JSON.parse(session.user).email}
         li

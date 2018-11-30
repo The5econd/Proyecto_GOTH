@@ -63,6 +63,34 @@ let app = {
                     array.push(aut);
                 }
                 console.log(array);
+                var glob = document.getElementById("global12").innerText;
+                console.log(glob);
+                var cont4 = 0;
+                array.forEach(element => {
+                    if(element == glob){
+                        console.log(element+'suesbello');
+                        cont4++;
+                    }
+                });
+                console.log(cont4+'cont4')
+                for(let i = 0; i < cont4; i++){
+                    let data = {
+                        tit: (alv.posts[i]).titulo,
+                        cuer: (alv.posts[i]).texto,
+                        aut: (alv.posts[i]).autor
+                    };
+                    let tbody = document.getElementById('profile-F');
+                    let div = document.createElement("div");
+                    div.innerHTML = `<div class="col s6">
+                                        <div class="card ">
+                                            <div class="card-content grey lighten-1">
+                                                <h5>${data.tit}</h5>
+                                            </div>
+                                            <div class="card-action"><a href="#">Eliminar</a></div>
+                                        </div>
+                                    </div>`;
+                    tbody.appendChild(div);
+                }
             })
     },
 
