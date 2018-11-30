@@ -29,20 +29,20 @@ block content
               div(class="modal-content")
                 form(method='POST' action='users/signup')
                   div(class="input-field")
-                    input(id="name" type='text' name='name')
+                    input(id="name" type='text' name='name' required)
                     label(for="name" style="font-size:1rem") Nombre
                   div(class="input-field")
-                    input(id="apellido" type='text' name='apellido')
+                    input(id="apellido" type='text' name='apellido' required)
                     label(for="apellido" style="font-size:1rem") Apellido
 
                   .input-field.col.s12
-                    select(id="sexo" name='sexo')
+                    select(id="sexo" name='sexo' required)
                       option(value='', disabled='', selected='') Sexo
                       option(value='Masculino') Masculino
                       option(value='Femenino') Femenino 
 
                   div(class="input-field")
-                    input(id="username" type='text' name='username')
+                    input(id="username" type='text' name='username' required)
                     label(for="username" style="font-size:1rem") Username
 
                   div(class="input-field")
@@ -50,11 +50,11 @@ block content
                     label(for="email1" style="font-size:1rem") Email
                 
                   div(class="input-field")
-                      input(id="pass1" type='password' name='password')
+                      input(id="pass1" type='password' name='password' required)
                       label(for="pass1" style="font-size:1rem") Password
 
                   .input-field.col.s12
-                    select(id="pregunta" name='pregunta')
+                    select(id="pregunta" name='pregunta' required)
                       option(value='', disabled='', selected='') Pregunta de seguridad
                       option(value='Nombre de mascota de la infancia?') Nombre de mascota de la infancia?
                       option(value='Nombre de madre?') Nombre de madre?
@@ -62,11 +62,11 @@ block content
                       option(value='Hobbie favorito?') Hobbie favorito?
 
                   div(class="input-field")
-                      input(id="respuesta" type='text' name='respuesta')
+                      input(id="respuesta" type='text' name='respuesta' required)
                       label(for="respuesta" style="font-size:1rem") Respuesta
 
                   .input-field.col.s12
-                    select(id="cuenta" name='cuenta')
+                    select(id="cuenta" name='cuenta' required)
                       option(value='', disabled='', selected='') Tipo de cuenta
                       option(value='normal') Normal
                       option(value='musica') Musica 

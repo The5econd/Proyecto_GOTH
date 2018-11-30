@@ -39,6 +39,7 @@ AuthController.store = async function (req, res) {
             return res.render('error2', { err: error, email: user.email });          
         else {
             //Almacenamos los datos de la consulta en el objeto data
+            console.log("Deberia de entrar");
             let data = {
                 userId: user._id.toString(),
                 email: user.email,
@@ -55,7 +56,6 @@ AuthController.store = async function (req, res) {
                 imagen: user.imagen
             }
             //console.log(data.seguridad.pregunta);
-            //hash es el mé que nos permite encriptar el password
             //con 10 le indicamos cuantas veces realizara la encriptación
             bcrypt.hash(data.userId, 10, function (err, hash) {
                 if (err) { //si produce un error
