@@ -18,8 +18,6 @@ function guardar() {
     tbody.appendChild(tr)
 };
 
-
-
 window.onload = () => {
     app.init();
 };
@@ -29,6 +27,7 @@ let app = {
         this.mostrarForos();
         this.foroUser();
         this.mostrarPlaylist();
+        this.playlist();
     },
 
 
@@ -37,13 +36,16 @@ let app = {
         console.log(globall);
     },
 
+    playlist: function(){
+        fetch('')
+    },
+
     mostrarPlaylist: function () {
-        fetch('/api/play'+JSON.parse(session.user).username, {
+        fetch('/api/play', {
             method: "GET"
         }).then(res => res.json())
             .then(response => {
                 console.log(response);
-                console.log('hola')
             })
     },
 
