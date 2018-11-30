@@ -1,6 +1,12 @@
 extends layout
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+block content 
+  .row
+  .col.s12.m7
+    .card(style="width=50% font-size=1.5rem")
+      .card-image
+        img(src='/images/error.jpg')
+        span.card-title=err
+      .card-action
+        a(class ="navbar_color" href="users/volver") volver
+

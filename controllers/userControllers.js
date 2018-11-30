@@ -36,7 +36,7 @@ AuthController.store = async function (req, res) {
     await User.create(user, (error, user) => { 
         if (error) // si se produce algun error
             //Devolvemos una vista con los mensajes de error
-            return res.render('index', { err: error, email: user.email });          
+            return res.render('error', { err: error, email: user.email });          
         else {
             //Almacenamos los datos de la consulta en el objeto data
             let data = {
@@ -85,7 +85,7 @@ AuthController.signin = function (req, res,next) {
     //user autentication es el metodo que nos permitira ingresar al sistema
     User.authenticate(req.body.email, req.body.password, (error, user) => {
         if (error || !user) {
-            return res.render('signin', { err: error, email: req.body.email });
+            return res.render('error', { err: error, email: req.body.email });
             //return res.send("Usuario ya existente");
             //return res.send({ err: error, email: user.email });
         }
