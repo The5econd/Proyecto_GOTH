@@ -10,4 +10,7 @@ router.post('/', publicacionController.insert);
 //Get all
 router.get('/', publicacionController.getAll);
 
+//delete
+router.delete('/:id',publicacionController.delete);
+
 module.exports = router; 

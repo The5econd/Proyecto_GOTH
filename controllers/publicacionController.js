@@ -63,4 +63,18 @@ controller.getAll1 = function (req, res) {
     });
     // Enviarlos como respuesta en JSON
 };
+
+controller.delete = function(req,res){
+    // intentar eliminar
+    publicacionModel.findByIdAndRemove(req.params.id, function(err, eleminado){
+        if (err) {
+            res.status(500);
+            res.json({code:500, err});
+        } else {
+            res.json({ok: true, eleminado});
+        }
+    });
+    // noitifcar resultado 
+}
+
 module.exports = controller;
