@@ -1,6 +1,6 @@
 extend layout
 block content 
-  div=err
+  
   if !session.user
     nav
       div(class="nav-wrapper #455a64 blue-grey darken-2")
@@ -12,7 +12,7 @@ block content
             a(class="waves-effect waves-light btn modal-trigger" data-target="modal1") signin
             div(id="modal1" class="modal")
               div(class="modal-content")
-                //div=err
+                
                 form(method='POST' action='users/signin')
                   div(class="input-field")
                       input(id="email" type='email' name='email' require value=email?email:'')
