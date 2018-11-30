@@ -199,4 +199,43 @@ AuthController.update = function (req, res) {
     });
 }
 
+AuthController.changePassword = function(req, res) {
+    var sessUser = JSON.parse(req.session.user);
+
+    bcrypt.compare(req.body.passwordAntigua, JSON.parse(req.session.user).password, function(err, result){
+        if(err){
+            res.status(500);
+            res.json({code:500, err});
+        } else {
+            if(result == true){                
+                bcrypt.hash(req.body.passwordNueva, 10, function(err, hash){
+                    if(err){
+                        next(err);
+                    }
+
+                    sessUser.password = hash;
+                    req.session.user = JSON.stringify(sessUser);
+
+                    let update = {
+                        password: hash
+                    }
+
+                    User.updateOne({"email": sessUser.email.toString()}, update, function(err){
+                        if(err){
+                            res.status(500);
+                            res.json({code:500, err});
+                        } else {
+                            console.log("Contrasena cambiada. Cambios efectuados.")
+                            return res.redirect('/profile/seguridad');
+                        }
+                    });  
+                });
+            } else {
+                console.log("La password no coincide. Cambios no realizados.");
+                res.redirect('/profile/seguridad');
+            }
+        }
+    });
+};
+
 module.exports = AuthController;

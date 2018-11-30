@@ -17,7 +17,7 @@ router.get('/Seguridad', function(req, res, next) {
   res.render('profileSeguridad');
 });
 
-//router.post('/seguridad/cambiarPassword',controlador);
+router.post('/seguridad/cambiarPassword', UserController.changePassword);
 
 //router.post('/seguridad/cambiarPregunta',controlador);
 

@@ -16,15 +16,15 @@ block content2
                                 div(class="input-field col s12")
                                     h4 Contraseña antigua
                                 div(class="input-field col s12")
-                                    input(id="password" type="password" class="validate")
+                                    input(id="password" type="password" class="validate" name="passwordAntigua")
                                     label(for="password") Old password
                                 div(class="input-field col s12")
                                     h4 Contraseña nueva
                                 div(class="input-field col s12")
-                                    input(id="password2" type="password" class="validate")
+                                    input(id="password2" type="password" class="validate" name="passwordNueva")
                                     label(for="password2") New password
                         div(class="modal-footer")
-                            button(type="submit"class="modal-close waves-effect waves-green btn-flat" value="Cambiar") 
+                            button(type="submit" class="modal-close waves-effect waves-green btn-flat" formmethod="post" formaction="/profile/seguridad/cambiarPassword") Aceptar 
             div(class="col s12")
                 h3 Olvido la contraseña
                 a(class="waves-effect waves-light btn modal-trigger" data-target="modal2")
