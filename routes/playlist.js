@@ -8,4 +8,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/', playlistController.insert);
 
+router.get('/', playlistController.getAll);
+
 module.exports = router;

@@ -1,6 +1,7 @@
 extends layout
 block content
     header
+        p(id='global12' style='font-size: 0.01px; position: fixed') #{JSON.parse(session.user).username}
         nav
             div(class="nav-wrapper #1a237e indigo darken-4")
                 a(href="/" class="brand-logo") GOTH MUSIC

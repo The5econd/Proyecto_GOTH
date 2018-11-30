@@ -36,7 +36,8 @@ controller.insert = function(req,res){
                 fs.copy(req.files.archivo.path, "public/images/"+extension);
             }
             res.json({
-                ok: true
+                ok: true,
+                playlist: newPlaylist
             });
         } else {
             res.status(500);
@@ -48,5 +49,33 @@ controller.insert = function(req,res){
     });
 };
 
+controller.getAll = function (req, res) {
+    // Obtener todos los post de la base datos
+    playlistModel.find({},function(err,playlist){
+        if (err) {
+            console.log(err);
+            res.status(500);
+            res.json({code:500, err});  
+        } else {
+            //console.log(posts);
+            res.json({ ok:true , playlist});
+        }
+    });
+    // Enviarlos como respuesta en JSON
+};
+
+controller.showOnlyUserPlaylist = function(req,res){
+    // Obtener todos los post de la base datos
+    playlistModel.find({usuario: req.params.username},function(err, playlist){
+        if (err) {
+            res.status(500);
+            res.json({code:500, err}); 
+        } else {
+            //console.log(posts);
+            res.json({ ok:true , playlist});
+        }
+    });
+    // Enviarlos como respuesta en JSON
+}
 
 module.exports = controller;

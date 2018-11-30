@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var UserController = require('../controllers/userControllers');
+var playlistControler = require("../controllers/playlistController");
 var publicacionController = require('../controllers/publicacionController');
 
 /* GET home page. */
@@ -16,6 +17,10 @@ router.get('/Seguridad', function(req, res, next) {
   res.render('profileSeguridad');
 });
 
+router.post('/seguridad/cambiarPassword', UserController.changePassword);
+
+//router.post('/seguridad/cambiarPregunta',controlador);
+
 router.get('/Foros', function(req, res, next) {
   res.render('profileForos');
 });
@@ -25,6 +30,9 @@ router.get('/Foros', function(req, res, next) {
 router.get('/Playlist', function(req, res, next) {
   res.render('profilePlaylist');
 });
+
+//Get only the users playlist
+router.get('/Playlist/:username',playlistControler.showOnlyUserPlaylist);
 
 router.post('/', UserController.update);
 

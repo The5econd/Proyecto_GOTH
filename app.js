@@ -19,7 +19,7 @@ var profileRouter = require('./routes/profile');
 var foroRouter = require('./routes/foro');
 var playlistRouter = require('./routes/playlist');
 var publicacionRouter = require('./routes/publicaciones');
-
+var playRouter = require('./routes/publicacionPlaylist');
 
 var app = express();
 require('./configs/database');
@@ -58,6 +58,7 @@ app.use('/users', usersRouter);
 app.use('/profile',profileRouter);
 app.use('/foro',foroRouter);
 app.use('/playlist',playlistRouter);
+app.use('/api/play',playRouter);
 app.use('/api/post',publicacionRouter); 
 
 // catch 404 and forward to error handler
